@@ -1,6 +1,6 @@
 # The BIZZBY Frontend Challenge
 
-Show us what you can do and how clean your code is! Write a web app that emulates BIZZBY app `job creation` screen, you can download the app from the AppStore or check out the screens here. 
+Show us what you can do and how clean your code is! Write a web app that emulates BIZZBY app `job creation` screen, you can download the app [from the AppStore](https://itunes.apple.com/gb/app/bizzby-on-demand-services/id659352778?mt=8) or [check out the screens here](http://www.bizzby.com/). 
 
 Things to keep in mind:
 
