@@ -4,7 +4,7 @@
 - [ ] Research & implement jest unit testing
 - [ ] Setup flux: store, dispatcher, actionCreators
 - [x] Setup stylus middlware, create stylus file
-- [ ] Implement basic layout
+- [x] Implement basic layout
 - [x] Setup browserify
 - [x] Setup shared `routes` module, so server knows what routes are available
 - [x] Setup react + flux + server-side rendering

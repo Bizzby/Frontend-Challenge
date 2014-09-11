@@ -5,9 +5,6 @@ var React = require('react');
 var icon = require('./icon.react');
 
 var headerBar = React.createClass({
-  propTypes: {
-    title: React.PropTypes.string.isRequired
-  },
   render: function() {
     return (
         <div className="headerBar">
@@ -16,7 +13,7 @@ var headerBar = React.createClass({
               <icon name="chevron"/>
             </a>
           </div>
-          <h1 className="headerBar-title">{this.props.title}</h1>
+          <h2 className="headerBar-title">What do you need?</h2>
         </div>
       );
   }
