@@ -1,4 +1,20 @@
 # The BIZZBY Frontend Challenge
+
+## TODO
+- [ ] Research & implement jest unit testing
+- [ ] Setup react + flux + server-side rendering
+- [x] npm init, folder structure, setup basic build script
+
+## Notes
+- React + server-side rendering
+- Mobile first
+- Stylus, browserify, uglifyjs, jest...
+- Wrap up "build" script into package.json
+- Routes:
+  - Service selection; Detail view
+  - Both routes show on wide screens. Handle this purely with CSS (including transitions between)
+
+## Requirements
 * [x] [check out the screens here](http://www.bizzby.com/). 
 * [x] We're a mobile-first company so your delivery must be mobile focused
 * [x] Your solution needs work on different mobile phones and platforms
