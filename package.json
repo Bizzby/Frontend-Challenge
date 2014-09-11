@@ -12,15 +12,23 @@
   },
   "devDependencies": {
     "browserify": "~3.44.2",
-    "reactify": "^0.14.0",
-    "stylus": "^0.46.3",
     "jeet": "^5.2.10",
     "nib": "^1.0.2",
-    "rupture": "^0.1.0"
+    "reactify": "^0.14.0",
+    "rupture": "^0.1.0",
+    "stylus": "^0.46.3",
+    "watchify": "^1.0.2",
+    "uglify-js": "~2.4.15"
+  },
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
   },
   "scripts": {
     "start": "node server.js 8080",
-    "build": "echo \"TODO\" && exit 1",
+    "watch": "watchify -o public/bundle.js -v -d ./client",
+    "build": "browserify ./client | uglifyjs -cm > public/bundle.js",
     "test": "echo \"TODO\" && exit 1"
   },
   "repository": {

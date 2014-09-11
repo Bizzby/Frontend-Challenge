@@ -1,4 +1,6 @@
-// TODO: require handler components here
+var homeRoute = require('./homeRoute.react');
+var cleaningRoute = require('./cleaningRoute.react');
+var ironingRoute = require('./ironingRoute.react');
 
 /**
  * Routes for the app.
@@ -11,13 +13,13 @@
  */
 var routes = [{
   pattern: "/",
-  // handler: Home
+  handler: homeRoute
 }, {
   pattern: "/cleaning",
-  // handler: BlogPost
+  handler: cleaningRoute
 }, {
   pattern: "/ironing",
-  // handler: BlogPost
+  handler: ironingRoute
 }];
 
 module.exports = routes;

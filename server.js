@@ -12,7 +12,7 @@ var url = require('url');
 var fs = require('fs');
 
 var App = require('./client');
-var routes = require('./routes');
+var routes = require('./client/routes');
 var port = process.argv[2] || 3000;
 
 Server.use(stylus.middleware({
@@ -44,5 +44,7 @@ Server.get(routePatterns, function(req, res) {
 });
 
 var server = Server.listen(port, function() {
-  console.log('Listening on port %d', server.address().port);
+  console.log('Go hit %s:%d in your browser!',
+    server.address().address,
+    server.address().port);
 });

@@ -2,13 +2,22 @@
 
 ## TODO
 - [ ] Research & implement jest unit testing
-- [ ] Setup stylus middlware, create stylus file
-- [ ] Implement basic layout
 - [ ] Setup flux: store, dispatcher, actionCreators
-- [ ] Setup browserify
+- [x] Setup stylus middlware, create stylus file
+- [ ] Implement basic layout
+- [x] Setup browserify
 - [x] Setup shared `routes` module, so server knows what routes are available
 - [x] Setup react + flux + server-side rendering
 - [x] npm init, folder structure, setup basic build script
+
+### Running locally
+1. `$ npm run build`
+2. `$ npm start`
+
+### Developing locally
+1. `$ npm run watch`
+2. `$npm install -g nodemon`
+3. `nodemon server.js 8080`
 
 ## Notes
 - React + server-side rendering

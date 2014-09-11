@@ -5,6 +5,7 @@
 var React = require('react');
 var Router = require("react-simple-router");
 
+var routes = require('./routes');
 var navigation = require('./components/navigation.react');
 
 var App = React.createClass({
