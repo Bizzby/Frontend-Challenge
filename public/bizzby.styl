@@ -1,3 +1,10 @@
+@import "nib"
+@import "jeet"
+@import "rupture"
+
+// nib reset
+global-reset()
+
 // Colours
 color-red = #F05B50
 color-red--light = #F47B72
@@ -8,12 +15,37 @@ color-red--xdark = #8F2924
 font-heading = "ff-cocon-web-pro", "sans-serif"
 font-body = "freight-sans-pro", "sans-serif"
 
-html
+// Basics
+body
   color white
   background color-red
   font 1em/1.5 font-body
-
 h1
 h2
 h3
   font-family font-heading
+  text-shadow 0 2px 1px color-red--dark
+  text-align center
+h1
+  text-transform uppercase
+  font-size 2em
+
+// Components
+.headerBar
+  box-shadow 0 3px 5px rgba(black, 0.1)
+  padding 0.5em
+.headerBar-backButton
+  position absolute
+  top 0
+  left 0
+.headerBar-backButton a
+  display block
+  padding 0.5em
+.headerBar-backButton .bzIcon
+  position relative
+  top 0.5em
+
+.bzIcon
+  display inline-block
+  width 2em
+  fill white

@@ -6,7 +6,15 @@ var React = require('react');
 
 var home = React.createClass({
   render: function() {
-    return <h1>Home</h1>;
+    return (
+      <div>
+        <h1>home</h1>
+        <ul>
+          <li><a href="/cleaning">cleaning</a></li>
+          <li><a href="/ironing">ironing</a></li>
+        </ul>
+      </div>
+    );
   }
 });
 

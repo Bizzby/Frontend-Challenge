@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.4 (8054) - http://www.bohemiancoding.com/sketch -->
+    <title>chevron</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="chevron" sketch:type="MSArtboardGroup" fill="#000000">
+            <path d="M25.0847117,44.5090845 L19.2710755,50.3227207 L25.0847117,56.1363569 L64.9963012,96.0479465 L76.6235737,84.420674 L36.7119841,44.5090845 L36.7119841,56.1363569 L76.6435862,16.2047549 L65.0163138,4.57748245 L25.0847117,44.5090845 Z" id="Path-1" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

@@ -4,9 +4,13 @@
 
 var React = require('react');
 
+var headerBar = require('../components/headerBar.react');
+
 var ironingRoute = React.createClass({
   render: function() {
-    return <h1>ironingRoute</h1>;
+    return (
+      <headerBar title="I need some ironing done"/>
+    );
   }
 });
 

@@ -5,6 +5,10 @@ var React = require('react');
 
 var Navigation = React.createClass({
   render: function() {
+
+    // TODO: check the active path, different CSS classes depending
+    // on if we're home or not
+
     return (
       <ul>
         <li>{this.props.activePath}</li>

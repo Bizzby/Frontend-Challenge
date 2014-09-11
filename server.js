@@ -23,7 +23,9 @@ Server.use(stylus.middleware({
     return stylus(str)
       .set('filename', path)
       .set('compress', true)
-      .use(nib(), rupture(), jeet());
+      .use(nib())
+      .use(rupture())
+      .use(jeet());
   }
 }));
 
