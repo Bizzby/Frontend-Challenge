@@ -8,7 +8,11 @@ var headerBar = require('../components/headerBar.react');
 var cleaningRoute = React.createClass({
   render: function() {
     return (
-      <headerBar/>
+      <div>
+        <headerBar/>
+        <p>Clean my [flat] [+description] at [location] in [timeframe] [I have cleaning products]
+        </p>
+      </div>
     );
   }
 });

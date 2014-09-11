@@ -1,8 +1,12 @@
 # The BIZZBY Frontend Challenge
 
 ## TODO
-- [ ] Research & implement jest unit testing
+- [ ] Implement jest unit testing
 - [ ] Setup flux: store, dispatcher, actionCreators
+- [ ] Detail view `selector`
+- [ ] Detail view layout
+- [ ] Animation between views (`CSSTransitionGroup`?)
+- [x] SVG Icons
 - [x] Setup stylus middlware, create stylus file
 - [x] Implement basic layout
 - [x] Setup browserify
