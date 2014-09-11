@@ -2,7 +2,12 @@
 
 ## TODO
 - [ ] Research & implement jest unit testing
-- [ ] Setup react + flux + server-side rendering
+- [ ] Setup stylus middlware, create stylus file
+- [ ] Implement basic layout
+- [ ] Setup flux: store, dispatcher, actionCreators
+- [ ] Setup browserify
+- [x] Setup shared `routes` module, so server knows what routes are available
+- [x] Setup react + flux + server-side rendering
 - [x] npm init, folder structure, setup basic build script
 
 ## Notes
