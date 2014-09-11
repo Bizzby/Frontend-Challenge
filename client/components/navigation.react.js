@@ -8,6 +8,7 @@ var Navigation = React.createClass({
     return (
       <ul>
         <li>{this.props.activePath}</li>
+        <li><a href="/">Home</a></li>
         <li><a href="/cleaning">cleaning</a></li>
         <li><a href="/ironing">ironing</a></li>
       </ul>

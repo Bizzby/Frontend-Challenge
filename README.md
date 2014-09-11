@@ -11,13 +11,20 @@
 - [x] npm init, folder structure, setup basic build script
 
 ### Running locally
-1. `$ npm run build`
-2. `$ npm start`
+Bundle up the client, then serve on `localhost:8080`:
+
+```bash
+$ npm run build
+$ npm start
+```
 
 ### Developing locally
-1. `$ npm run watch`
-2. `$npm install -g nodemon`
-3. `nodemon server.js 8080`
+Bundle the client and watch for changes, then serve as above.
+
+```bash
+$ npm run watch
+$ npm start
+```
 
 ## Notes
 - React + server-side rendering

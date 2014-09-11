@@ -41,7 +41,7 @@ var App = React.createClass({
         <body>
 
           <navigation activePath={this.props.path}/>
-          <router/>
+          <router path={this.props.path} routes={routes} />
 
         </body>
       </html>
