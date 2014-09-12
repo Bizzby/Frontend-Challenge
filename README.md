@@ -23,11 +23,14 @@ $ npm start
 ```
 
 ### Developing locally
-Bundle the client and watch for changes, then serve as above.
+Install nodemon (an awesome little util that restarts the server when js changes occur), then serve, then run watchify to bunde up changes when they occur.
 
 ```bash
+$ npm install -g nodemon
+$ nodemon server.js 8080
+
+# in another window/tab/session/whatever
 $ npm run watch
-$ npm start
 ```
 
 ## Notes

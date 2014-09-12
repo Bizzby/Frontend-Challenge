@@ -1,30 +1,47 @@
 /**
+ * Hello, Dear Reader!
+ * I wouldn't ordinarily write as many comments as there are within this
+ * application, but felt I should explain myself in parts. Especially those
+ * where it looks like I'm being an idiot, but have specifically decided to make
+ * 
+ * 
  * @jsx React.DOM
  */
 
-var React = require('react');
-var Router = require("react-simple-router");
 
-var routes = require('./routes');
+
+var React = require('react/addons');
+
+// This is a simple router that supports server-side rendering (none of the
+// other available react routing solutions support this easily yet).
+// I'm only using the `Router.Navigator` part of the lib, as I couldn't figure
+// out how to support animation when using only the `Router.Component`.
+var Router = require("react-simple-router");
+var CSSTransitionGroup = React.addons.CSSTransitionGroup;
+
+var homeRoute = require('./routes/homeRoute.react');
+var cleaningRoute = require('./routes/cleaningRoute.react');
+var ironingRoute = require('./routes/ironingRoute.react');
 var navigation = require('./components/navigation.react');
 var icon = require('./components/icon.react');
 
 var App = React.createClass({
   render: function() {
 
-    var router = Router.Component;
-
     var title = null;
-
+    var activeRoute = null;
     switch(this.props.path) {
       case "/":
         title = "Home";
+        activeRoute = homeRoute;
         break;
       case "/cleaning":
         title = "Cleaning";
+        activeRoute = cleaningRoute;
         break;
       case "/ironing":
         title = "Ironing";
+        activeRoute = ironingRoute;
         break;
     }
 
@@ -33,7 +50,7 @@ var App = React.createClass({
     return (
       <html>
         <head>
-          <title>Test</title>
+          <title>{title}</title>
           <link href="/bizzby.css" rel="stylesheet" />
           <script async src="/bundle.js"></script>
           <meta name="viewport" content="width=device-width"/>
@@ -44,7 +61,9 @@ var App = React.createClass({
             <h1 className="banner">Oh no! You have no javascript enabled...</h1>
           </noscript>
 
-          <router path={this.props.path} routes={routes} />
+          <CSSTransitionGroup transitionName="page">
+            <activeRoute key={this.props.path}/>
+          </CSSTransitionGroup>
 
         </body>
       </html>
@@ -92,6 +111,9 @@ if (typeof window !== 'undefined') {
   Router.Navigator.onNavigate(function(newPath){
     app.setProps({ path: newPath });
   });
+
+  // Attach react to the window for the chrome plugin to work
+  window.React = React;
 }
 
 module.exports = App;

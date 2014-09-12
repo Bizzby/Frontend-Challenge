@@ -1,12 +1,14 @@
 /**
  * @jsx React.DOM
  */
-
 var React = require('react');
 
 var headerBar = require('../components/headerBar.react');
 
 var ironingRoute = React.createClass({
+  componentWillEnter: function() {
+    console.log("called");
+  },
   render: function() {
     return (
       <div>
