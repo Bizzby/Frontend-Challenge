@@ -8,12 +8,9 @@ var headerBar = require('../components/headerBar.react');
 var cleaningRoute = React.createClass({
   render: function() {
     return (
-      <div className={this.props.className}>
-        <headerBar/>
-        <div className="detailView">
-          <p>Clean my [flat] [+description] at [location] in [timeframe] [I have cleaning products]
-          </p>
-        </div>
+      <div className="detailView">
+        <p>Clean my [flat] [+description] at [location] in [timeframe] [I have cleaning products]
+        </p>
       </div>
     );
   }

@@ -8,12 +8,9 @@ var headerBar = React.createClass({
   render: function() {
     return (
         <div className="headerBar">
-          <div className="headerBar-backButton">
-            <a href="/">
-              <icon name="chevron"/>
-            </a>
-          </div>
-          <h2 className="headerBar-title">What do you need?</h2>
+          <a href="/">
+            <h2>What do you need?</h2>
+          </a>
         </div>
       );
   }

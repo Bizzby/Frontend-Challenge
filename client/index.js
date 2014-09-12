@@ -8,44 +8,18 @@ var React = require('react/addons');
 // I'm only using the `Router.Navigator` part of the lib, as I couldn't figure
 // out how to support animation when using only the `Router.Component`.
 var Router = require("react-simple-router");
-var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 var routes = require('./routes').routes;
 var navigation = require('./components/navigation.react');
+var headerBar = require('./components/headerBar.react');
 var icon = require('./components/icon.react');
 
 var App = React.createClass({
-  getInitialState: function() {
-    return {
-      transitionForwards: true
-    };
-  },
-  componentWillReceiveProps: function(nextProps) {
-    var newPath = nextProps.path;
-
-    // If our new path is the homepage, we need to transition backwards
-    // If it's not the homepage, we transition forwards.
-    // This function is not called on the inital render, so we don't have to
-    // worry about messing anything up
-    if (newPath === "/") {
-      this.setState({
-        transitionForwards: false
-      });
-    } else {
-      this.setState({
-        transitionForwards: true
-      });
-    }
-  },
   render: function() {
     var activeRoute = routes[this.props.path];
+
     var title = "Bizzby | " + activeRoute.title;
     var handler = activeRoute.handler;
-
-    var directionalTransition  = this.state.transitionForwards ?
-      "pageForward" : "pageBackward";
-
-    console.log("Transition:", directionalTransition);
 
     return (
       <html>
@@ -61,9 +35,9 @@ var App = React.createClass({
             <h1 className="banner">http://sighjavascript.tumblr.com</h1>
           </noscript>
 
-          <CSSTransitionGroup transitionName={directionalTransition}>
-            <handler key={this.props.path} className="page"/>
-          </CSSTransitionGroup>
+          <headerBar/>
+          <navigation path={this.props.path}/>
+          <handler/>
 
         </body>
       </html>

@@ -4,8 +4,7 @@
 - [ ] Implement jest unit testing
 - [ ] Setup flux: store, dispatcher, actionCreators
 - [ ] Detail view `selector`
-- [ ] Detail view layout
-- [ ] Pretty animation between views
+- [x] Detail view layout
 - [x] Animation between views (`CSSTransitionGroup`?)
 - [x] SVG Icons
 - [x] Setup stylus middlware, create stylus file

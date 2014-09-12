@@ -27,10 +27,10 @@
 global-reset()
 
 //// Colours
-color-red = #F05B50
-color-red--light = #F47B72
-color-red--dark = #CF4038
-color-red--xdark = #8F2924
+color-red = #F2594B
+color-red--light = #EE6B5F
+color-red--dark = #D13F32
+color-red--xdark = #9D2F25
 
 //// Shadows
 shadow--below = 0 3px 5px rgba(black, 0.1)
@@ -67,21 +67,25 @@ body
   font 16px/1.5 font-body
 h1
   font-family font-heading
-  text-shadow 0 2px 1px rgba(black, 0.2)
   text-align center
   text-transform uppercase
   font-size 2em
 h2
   font-size 1.5em
   text-align center
+a
+  color white
+  text-decoration none
 
 //// Components
 .bzIcon
   display inline-block
-  width 2em
-  height 2em
+  width 1.5em
+  height @width
   fill white
   vertical-align middle
+  overflow hidden
+  padding 0.15em 0
 
 .page
   position absolute
@@ -94,9 +98,10 @@ h2
   position relative
   z-index z-index--headerBar
   background color-red--light
-  box-shadow shadow
   height 3em
   line-height 3em
+  margin-bottom 1em
+  border-bottom 1px solid color-red--dark
 .headerBar-backButton
   position absolute
   top 0
@@ -108,64 +113,34 @@ h2
   position relative
 
 .taskTypeList
-  font-size 3em
-  margin-top 1em
-.taskTypeList-item
-  display block
+  width 100%
   text-align center
+  margin-bottom 0.5em
+.taskTypeList-item
+  display inline-block
+  font-size 1.2em
+.taskTypeList-item a
+  display inline-block
+  text-align center
+  padding 0.25em 0.5em
+  border 1px solid color-red--dark
+  border-left-width 0px
+  transition all 400ms easeOutExpo
+.taskTypeList-item:first-child a
+    border-radius 4px 0 0 4px
+    border-left-width 1px
+.taskTypeList-item:last-child a
+    border-radius 0 4px 4px 0  
 .taskTypeList-item .bzIcon
   fill color-red--dark
-.taskTypeList-item a
-  color white
-  text-decoration none
+  display inline-block
+  transition fill 400ms easeOutExpo
+.taskTypeList-item.active
+  a
+    background color-red--dark
+  .bzIcon
+    fill white
 
 .detailView
-  position relative
-  z-index z-index--detailView
-  background color-red
-  height 100%
-  width 100%
-  box-shadow shadow--left
-
-//// Animations for ReactCSSTransitionGroup
-// I initially attempted a far-fancier animation, attempting to mimick iOS as
-// close as possible. Worked great on Chrome and Firefox, but was completely
-// broken on Safari on Yosemite and iOS8, ironically.
-.pageForward-enter
-  transform translateX(100%)
-  transition transform 500ms easeOutExpo
-  .headerBar-backButton
-    opacity 0
-    transition opacity 500ms easeOutExpo
-.pageForward-enter.pageForward-enter-active
-  transform translateX(0)
-  .headerBar-backButton
-    opacity 1
-
-.pageForward-leave
-  transform translateX(0)
-  transition transform 500ms easeOutExpo
-  .headerBar-backButton
-    opacity 1
-    transition opacity 500ms easeOutExpo
-.pageForward-leave.pageForward-leave-active
-  transform translateX(-100%)
-  .headerBar-backButton
-    opacity 0
-
-.pageBackward-enter
-  transform translateX(-100%)
-  transition transform 500ms easeOutExpo
-.pageBackward-enter.pageBackward-enter-active
-  transform translateX(0)
-
-.pageBackward-leave
-  transform translateX(0)
-  transition transform 500ms easeOutExpo
-  .headerBar-backButton
-    opacity 1
-    transition opacity 500ms easeOutExpo
-.pageBackward-leave.pageBackward-leave-active
-  transform translateX(100%)
-  .headerBar-backButton
-    opacity 0
+  padding 0 0.5em
+  font-size 2em
