@@ -32,6 +32,8 @@ function _bumpLocation() {
     _locationsIndex = 0;
   }
   _job.location = _locations[_locationsIndex];
+
+  _job.time = Math.floor(Math.random()*100) + " minutes";
 }
 
 function _bumpIroningTypes() {

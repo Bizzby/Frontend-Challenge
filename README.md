@@ -1,7 +1,7 @@
 # The BIZZBY Frontend Challenge
 
 ## TODO
-- [ ] Add jest unit tests for all
+- [ ] Add jest unit tests for all components, stores, actionCreators, and the main app
 - [ ] Sex-up `bzSelector` so size-changes are fluid
 - [x] Setup flux: store, dispatcher, actionCreators
 - [x] Detail view `selector`
