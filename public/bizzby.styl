@@ -1,3 +1,22 @@
+/*
+ * bizzby.styl
+ *
+ * I have experience with other CSS preprocessors, but stylus is my favourite
+ * because it:
+ * - is syntactically similar to javascript
+ * - is indentation based
+ * - doesn't care about braces, colons, and semi-colons
+ * - has transparent mixins
+ * 
+ * Gonna try out @fat's pretty sweet LESS coding guidelines here
+ * 
+ * https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06
+ * https://gist.github.com/fat/a47b882eb5f84293c4ed#components
+
+ * I've used BEM quite a bit previously, but really like the ideas in the
+ * article — especially the approach towards components, which fits perfectly in
+ * with React's idioms.
+ */
 @import "nib"
 @import "jeet"
 @import "rupture"
@@ -31,6 +50,12 @@ h2
   text-align center
 
 // Components
+.page
+  position absolute
+  width 100%
+  top 0
+  left 0
+
 .headerBar
   background color-red--light
   box-shadow 0 3px 5px rgba(black, 0.1)
@@ -67,11 +92,11 @@ h2
 // Animation etc.
 .page-enter
   transform translateX(100%)
-  transition transform 300ms ease-out
+  transition display 0ms 0ms, transform 300ms ease-out 1ms
 .page-enter.page-enter-active
   transform translateX(0)
 .page-leave
   transform translateX(0)
-  transition transform 300ms ease-out
+  transition display 0ms 0ms, transform 300ms ease-out 1ms
 .page-leave.page-leave-active
   transform translateX(-100%)

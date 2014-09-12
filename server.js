@@ -1,3 +1,10 @@
+/**
+ * Hello, Dear Reader!
+ * I wouldn't ordinarily write as many comments as there are within this
+ * application, but felt I should explain myself in parts. Especially those
+ * where it looks like I'm being an idiot, but (kinda) know what I'm doing.
+ */
+
 var React = require('react');
 require('node-jsx').install();
 

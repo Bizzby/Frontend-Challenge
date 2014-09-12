@@ -9,7 +9,7 @@ var headerBar = require('../components/headerBar.react');
 var home = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className={this.props.className}>
         <div className="headerBar">
           <div className="headerBar-backButton">
           </div>

@@ -5,7 +5,8 @@
 - [ ] Setup flux: store, dispatcher, actionCreators
 - [ ] Detail view `selector`
 - [ ] Detail view layout
-- [ ] Animation between views (`CSSTransitionGroup`?)
+- [ ] Pretty animation between views
+- [x] Animation between views (`CSSTransitionGroup`?)
 - [x] SVG Icons
 - [x] Setup stylus middlware, create stylus file
 - [x] Implement basic layout

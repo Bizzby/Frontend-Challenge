@@ -11,7 +11,7 @@ var ironingRoute = React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <div className={this.props.className}>
         <headerBar/>
         <p>I need some ironing done at [location] in [timeframe] its mainly [shirts] [+description]</p>
         <div>

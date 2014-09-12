@@ -1,10 +1,4 @@
 /**
- * Hello, Dear Reader!
- * I wouldn't ordinarily write as many comments as there are within this
- * application, but felt I should explain myself in parts. Especially those
- * where it looks like I'm being an idiot, but have specifically decided to make
- * 
- * 
  * @jsx React.DOM
  */
 
@@ -62,7 +56,7 @@ var App = React.createClass({
           </noscript>
 
           <CSSTransitionGroup transitionName="page">
-            <activeRoute key={this.props.path}/>
+            <activeRoute key={this.props.path} className="page"/>
           </CSSTransitionGroup>
 
         </body>
