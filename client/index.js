@@ -3,6 +3,8 @@
  */
 var React = require('react/addons');
 
+React.initializeTouchEvents(true);
+
 // This is a simple router that supports server-side rendering (none of the
 // other available react routing solutions support this easily yet).
 // I'm only using the `Router.Navigator` part of the lib, as I couldn't figure

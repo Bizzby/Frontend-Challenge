@@ -3,6 +3,7 @@
 ## TODO
 - [ ] Implement jest unit testing
 - [ ] Setup flux: store, dispatcher, actionCreators
+- [ ] Implement some kind of fastclick-style thing
 - [ ] Detail view `selector`
 - [x] Detail view layout
 - [x] Animation between views (`CSSTransitionGroup`?)
