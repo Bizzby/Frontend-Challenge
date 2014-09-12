@@ -1,9 +1,6 @@
 /**
  * @jsx React.DOM
  */
-
-
-
 var React = require('react/addons');
 
 // This is a simple router that supports server-side rendering (none of the
@@ -13,9 +10,7 @@ var React = require('react/addons');
 var Router = require("react-simple-router");
 var CSSTransitionGroup = React.addons.CSSTransitionGroup;
 
-var homeRoute = require('./routes/homeRoute.react');
-var cleaningRoute = require('./routes/cleaningRoute.react');
-var ironingRoute = require('./routes/ironingRoute.react');
+var routes = require('./routes').routes;
 var navigation = require('./components/navigation.react');
 var icon = require('./components/icon.react');
 
@@ -43,28 +38,14 @@ var App = React.createClass({
     }
   },
   render: function() {
-
-    var title = null;
-    var activeRoute = null;
-    switch(this.props.path) {
-      case "/":
-        title = "Home";
-        activeRoute = homeRoute;
-        break;
-      case "/cleaning":
-        title = "Cleaning";
-        activeRoute = cleaningRoute;
-        break;
-      case "/ironing":
-        title = "Ironing";
-        activeRoute = ironingRoute;
-        break;
-    }
-
-    title = "Bizzby | " + title;
+    var activeRoute = routes[this.props.path];
+    var title = "Bizzby | " + activeRoute.title;
+    var handler = activeRoute.handler;
 
     var directionalTransition  = this.state.transitionForwards ?
       "pageForward" : "pageBackward";
+
+    console.log("Transition:", directionalTransition);
 
     return (
       <html>
@@ -77,11 +58,11 @@ var App = React.createClass({
         </head>
         <body>
           <noscript>
-            <h1 className="banner">Oh no! You have no javascript enabled...</h1>
+            <h1 className="banner">http://sighjavascript.tumblr.com</h1>
           </noscript>
 
           <CSSTransitionGroup transitionName={directionalTransition}>
-            <activeRoute key={this.props.path} className="page"/>
+            <handler key={this.props.path} className="page"/>
           </CSSTransitionGroup>
 
         </body>

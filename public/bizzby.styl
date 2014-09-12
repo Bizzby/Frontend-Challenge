@@ -26,27 +26,45 @@
 // nib reset
 global-reset()
 
-// Colours
+//// Colours
 color-red = #F05B50
 color-red--light = #F47B72
 color-red--dark = #CF4038
 color-red--xdark = #8F2924
 
-// Font stacks
+//// Shadows
+shadow--below = 0 3px 5px rgba(black, 0.1)
+shadow--left = -3px 0 5px rgba(black, 0.1)
+
+//// Font stacks
 font-heading = "ff-cocon-web-pro", "sans-serif"
 font-body = "freight-sans-pro", "sans-serif"
 
-// Easings
+//// Easings
 // Taken from http://easings.net/
 easeOutBack = cubic-bezier(0.175, 0.885, 0.32, 1.275)
 easeInOutBack = cubic-bezier(0.68, -0.55, 0.265, 1.55)
 easeOutExpo = cubic-bezier(0.19, 1, 0.22, 1)
+easeOutSine = cubic-bezier(0.39, 0.575, 0.565, 1)
 
-// Basics
+//// Z-indexes
+z-index--detailView = 100
+z-index--page-below = 100
+z-index--page-above = 200
+z-index--headerBar =  300
+
+//// Basics
+html
+  transition opacity 300ms
+  opacity 0
+  &.wf-inactive
+  &.wf-active
+    opacity 1
+
 body
   color white
   background color-red
-  font 1em/1.5 font-body
+  font 16px/1.5 font-body
 h1
   font-family font-heading
   text-shadow 0 2px 1px rgba(black, 0.2)
@@ -57,16 +75,26 @@ h2
   font-size 1.5em
   text-align center
 
-// Components
+//// Components
+.bzIcon
+  display inline-block
+  width 2em
+  height 2em
+  fill white
+  vertical-align middle
+
 .page
   position absolute
   width 100%
   top 0
   left 0
+  height 100%
 
 .headerBar
+  position relative
+  z-index z-index--headerBar
   background color-red--light
-  box-shadow 0 3px 5px rgba(black, 0.1)
+  box-shadow shadow
   height 3em
   line-height 3em
 .headerBar-backButton
@@ -78,12 +106,6 @@ h2
   padding 0.5em
 .headerBar-backButton .bzIcon
   position relative
-
-.bzIcon
-  display inline-block
-  width 2em
-  fill white
-  vertical-align middle
 
 .taskTypeList
   font-size 3em
@@ -97,25 +119,53 @@ h2
   color white
   text-decoration none
 
-// Animation etc.
+.detailView
+  position relative
+  z-index z-index--detailView
+  background color-red
+  height 100%
+  width 100%
+  box-shadow shadow--left
+
+//// Animations for ReactCSSTransitionGroup
+// I initially attempted a far-fancier animation, attempting to mimick iOS as
+// close as possible. Worked great on Chrome and Firefox, but was completely
+// broken on Safari on Yosemite and iOS8, ironically.
 .pageForward-enter
   transform translateX(100%)
   transition transform 500ms easeOutExpo
+  .headerBar-backButton
+    opacity 0
+    transition opacity 500ms easeOutExpo
 .pageForward-enter.pageForward-enter-active
   transform translateX(0)
+  .headerBar-backButton
+    opacity 1
+
 .pageForward-leave
   transform translateX(0)
   transition transform 500ms easeOutExpo
+  .headerBar-backButton
+    opacity 1
+    transition opacity 500ms easeOutExpo
 .pageForward-leave.pageForward-leave-active
   transform translateX(-100%)
+  .headerBar-backButton
+    opacity 0
 
 .pageBackward-enter
   transform translateX(-100%)
   transition transform 500ms easeOutExpo
 .pageBackward-enter.pageBackward-enter-active
   transform translateX(0)
+
 .pageBackward-leave
   transform translateX(0)
   transition transform 500ms easeOutExpo
+  .headerBar-backButton
+    opacity 1
+    transition opacity 500ms easeOutExpo
 .pageBackward-leave.pageBackward-leave-active
   transform translateX(100%)
+  .headerBar-backButton
+    opacity 0

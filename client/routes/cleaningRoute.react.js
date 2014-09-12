@@ -10,8 +10,10 @@ var cleaningRoute = React.createClass({
     return (
       <div className={this.props.className}>
         <headerBar/>
-        <p>Clean my [flat] [+description] at [location] in [timeframe] [I have cleaning products]
-        </p>
+        <div className="detailView">
+          <p>Clean my [flat] [+description] at [location] in [timeframe] [I have cleaning products]
+          </p>
+        </div>
       </div>
     );
   }

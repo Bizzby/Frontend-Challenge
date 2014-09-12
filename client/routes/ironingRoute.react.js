@@ -10,13 +10,15 @@ var ironingRoute = React.createClass({
     return (
       <div className={this.props.className}>
         <headerBar/>
-        <p>I need some ironing done at [location] in [timeframe] its mainly [shirts] [+description]</p>
-        <div>
-          What do I get?
+        <div className="detailView">
+          <p>I need some ironing done at [location] in [timeframe] its mainly [shirts] [+description]</p>
+          <div>
+            What do I get?
+          </div>
+          <button>
+            Get price &amp; Bizzby it
+          </button>
         </div>
-        <button>
-          Get price &amp; Bizzby it
-        </button>
       </div>
     );
   }

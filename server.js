@@ -19,7 +19,7 @@ var url = require('url');
 var fs = require('fs');
 
 var App = require('./client');
-var routes = require('./client/routes');
+var routePatterns = require('./client/routes').routePatterns();
 var port = process.argv[2] || 3000;
 
 Server.use(stylus.middleware({
@@ -37,10 +37,6 @@ Server.use(stylus.middleware({
 }));
 
 Server.use(express.static(__dirname + '/public'));
-
-var routePatterns = routes.map(function(route) {
-  return route.pattern;
-});
 
 Server.get(routePatterns, function(req, res) {
   var path = url.parse(req.url).path;
