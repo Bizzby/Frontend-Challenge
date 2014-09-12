@@ -11,6 +11,12 @@ var cleaningRoute = React.createClass({
       <div className="detailView">
         <p>Clean my [flat] [+description] at [location] in [timeframe] [I have cleaning products]
         </p>
+        <div className="callOut">
+          What do I get?
+        </div>
+        <button>
+          Continue
+        </button>
       </div>
     );
   }

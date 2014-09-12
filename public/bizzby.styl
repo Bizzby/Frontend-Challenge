@@ -29,6 +29,7 @@ global-reset()
 //// Colours
 color-red = #F2594B
 color-red--light = #EE6B5F
+color-red--xlight = #F57A6F
 color-red--dark = #D13F32
 color-red--xdark = #9D2F25
 
@@ -83,7 +84,7 @@ a
   width 1.5em
   height @width
   fill white
-  vertical-align middle
+  vertical-align -11px
   overflow hidden
   padding 0.15em 0
 
@@ -144,3 +145,12 @@ a
 .detailView
   padding 0 0.5em
   font-size 2em
+
+.selector
+  display inline-block
+  vertical-align middle
+  background color-red--xlight
+  border-radius 5px
+  padding 0 0.25em
+.selector .bzIcon
+  font-size 80%
