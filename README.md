@@ -1,10 +1,10 @@
 # The BIZZBY Frontend Challenge
 
 ## TODO
-- [ ] Implement jest unit testing
-- [ ] Setup flux: store, dispatcher, actionCreators
-- [ ] Implement some kind of fastclick-style thing
-- [ ] Detail view `selector`
+- [ ] Add jest unit tests for all
+- [ ] Sex-up `bzSelector` so size-changes are fluid
+- [x] Setup flux: store, dispatcher, actionCreators
+- [x] Detail view `selector`
 - [x] Detail view layout
 - [x] Animation between views (`CSSTransitionGroup`?)
 - [x] SVG Icons
@@ -34,27 +34,22 @@ $ nodemon server.js 8080
 $ npm run watch
 ```
 
-## Notes
-- React + server-side rendering
-- Mobile first
-- Stylus, browserify, uglifyjs, jest...
-- Wrap up "build" script into package.json
-- Routes:
-  - Service selection; Detail view
-  - Both routes show on wide screens. Handle this purely with CSS (including transitions between)
+## If given time, some things I would research and implement to make this project feature-complete (or better) compared to the actual Bizzby app...
+- Use a fluid-layout JS library like packery
+- Use a solid JS-based animation library (CSS doesn't cut it for anything remotely complex)
 
-## Requirements
+### Requirements
 * [x] [check out the screens here](http://www.bizzby.com/). 
 * [x] We're a mobile-first company so your delivery must be mobile focused
 * [x] Your solution needs work on different mobile phones and platforms
 * [ ] Your code should be tested (you unit test right?)
 * [x] Please don't use grunt.js or gulp.js
-* [ ] We're obsessed with UI and UX so play attention to little details (show-off your CSS skills)
+* [x] We're obsessed with UI and UX so play attention to little details (show-off your CSS skills)
 * [ ] Give particular care to the touch and feel responsiveness
 * [x] Consider using a MVC JS framework such as Angular.js, Ember.js, Backbone or another of your choice (explain wby you've chosen it)
-* [ ] You can use CoffeeScript, LESS, SASS, or other community accepted best practices
+* [x] You can use CoffeeScript, LESS, SASS, or other community accepted best practices
 * [x] Make use of Facebook react.js framework
 * [ ] Point us to your contribution to open source projects
-* [ ] Demonstrate you using your own build script like Makefile
+* [x] Demonstrate you using your own build script like Makefile
 * [ ] You can just submit a PR here
 * [ ] If you've got a project or code your super pround of feel free to provide this as part of your submission as long as it fits in with the above requirements.

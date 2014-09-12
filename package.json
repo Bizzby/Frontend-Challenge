@@ -6,6 +6,7 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.8.8",
+    "flux": "^2.0.1",
     "node-jsx": "^0.11.0",
     "react": "^0.11.1",
     "react-simple-router": "0.0.9"
