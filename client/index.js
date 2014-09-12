@@ -37,9 +37,11 @@ var App = React.createClass({
             <h1 className="banner">http://sighjavascript.tumblr.com</h1>
           </noscript>
 
-          <headerBar/>
-          <navigation path={this.props.path}/>
-          <handler/>
+          <div className="container">
+            <headerBar/>
+            <navigation path={this.props.path}/>
+            <handler/>
+          </div>
 
         </body>
       </html>

@@ -34,6 +34,11 @@ $ nodemon server.js 8080
 $ npm run watch
 ```
 
+## What's cool about this project
+- [React](http://facebook.github.io/react/) + [Flux](http://facebook.github.io/flux/)
+- [SVG icons](http://iestynwilliams.net/icons-for-the-web-in-2014)
+- 
+
 ## If given time, some things I would research and implement to make this project feature-complete (or better) compared to the actual Bizzby app...
 - Use a fluid-layout JS library like packery
 - Use a solid JS-based animation library (CSS doesn't cut it for anything remotely complex)
