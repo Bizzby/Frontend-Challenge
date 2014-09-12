@@ -20,6 +20,28 @@ var navigation = require('./components/navigation.react');
 var icon = require('./components/icon.react');
 
 var App = React.createClass({
+  getInitialState: function() {
+    return {
+      transitionForwards: true
+    };
+  },
+  componentWillReceiveProps: function(nextProps) {
+    var newPath = nextProps.path;
+
+    // If our new path is the homepage, we need to transition backwards
+    // If it's not the homepage, we transition forwards.
+    // This function is not called on the inital render, so we don't have to
+    // worry about messing anything up
+    if (newPath === "/") {
+      this.setState({
+        transitionForwards: false
+      });
+    } else {
+      this.setState({
+        transitionForwards: true
+      });
+    }
+  },
   render: function() {
 
     var title = null;
@@ -41,6 +63,9 @@ var App = React.createClass({
 
     title = "Bizzby | " + title;
 
+    var directionalTransition  = this.state.transitionForwards ?
+      "pageForward" : "pageBackward";
+
     return (
       <html>
         <head>
@@ -55,7 +80,7 @@ var App = React.createClass({
             <h1 className="banner">Oh no! You have no javascript enabled...</h1>
           </noscript>
 
-          <CSSTransitionGroup transitionName="page">
+          <CSSTransitionGroup transitionName={directionalTransition}>
             <activeRoute key={this.props.path} className="page"/>
           </CSSTransitionGroup>
 

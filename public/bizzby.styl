@@ -8,14 +8,16 @@
  * - doesn't care about braces, colons, and semi-colons
  * - has transparent mixins
  * 
- * Gonna try out @fat's pretty sweet LESS coding guidelines here
- * 
+ * Gonna try out @fat's pretty sweet LESS coding guidelines here...
  * https://medium.com/@fat/mediums-css-is-actually-pretty-fucking-good-b8e2a6c78b06
  * https://gist.github.com/fat/a47b882eb5f84293c4ed#components
 
  * I've used BEM quite a bit previously, but really like the ideas in the
  * article — especially the approach towards components, which fits perfectly in
  * with React's idioms.
+ *
+ * Oridinarily I would split this file out into component styles, variables,
+ * etc, but for the sake of speed I'm piling it all in here.
  */
 @import "nib"
 @import "jeet"
@@ -33,6 +35,12 @@ color-red--xdark = #8F2924
 // Font stacks
 font-heading = "ff-cocon-web-pro", "sans-serif"
 font-body = "freight-sans-pro", "sans-serif"
+
+// Easings
+// Taken from http://easings.net/
+easeOutBack = cubic-bezier(0.175, 0.885, 0.32, 1.275)
+easeInOutBack = cubic-bezier(0.68, -0.55, 0.265, 1.55)
+easeOutExpo = cubic-bezier(0.19, 1, 0.22, 1)
 
 // Basics
 body
@@ -90,13 +98,24 @@ h2
   text-decoration none
 
 // Animation etc.
-.page-enter
+.pageForward-enter
   transform translateX(100%)
-  transition display 0ms 0ms, transform 300ms ease-out 1ms
-.page-enter.page-enter-active
+  transition transform 500ms easeOutExpo
+.pageForward-enter.pageForward-enter-active
   transform translateX(0)
-.page-leave
+.pageForward-leave
   transform translateX(0)
-  transition display 0ms 0ms, transform 300ms ease-out 1ms
-.page-leave.page-leave-active
+  transition transform 500ms easeOutExpo
+.pageForward-leave.pageForward-leave-active
   transform translateX(-100%)
+
+.pageBackward-enter
+  transform translateX(-100%)
+  transition transform 500ms easeOutExpo
+.pageBackward-enter.pageBackward-enter-active
+  transform translateX(0)
+.pageBackward-leave
+  transform translateX(0)
+  transition transform 500ms easeOutExpo
+.pageBackward-leave.pageBackward-leave-active
+  transform translateX(100%)
