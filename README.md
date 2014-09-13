@@ -3,9 +3,9 @@
 ## TODO
 - [ ] Properly implement `cleaningRoute`
 - [ ] Add validation
-- [ ] Add jest unit tests for all components, stores, actionCreators, and the main app
+- [x] Add jest unit tests for all components, stores, actionCreators, and the main app
 - [ ] Sex-up `bzSelector` so size-changes are fluid
-- [ ] Create non-interactable `bzSelector`
+- [x] Create non-interactable `bzSelector`
 - [x] Create and style bzInput
 - [x] Setup flux: store, dispatcher, actionCreators
 - [x] Detail view `selector`
@@ -51,7 +51,7 @@ $ npm run watch
 * [x] [check out the screens here](http://www.bizzby.com/). 
 * [x] We're a mobile-first company so your delivery must be mobile focused
 * [x] Your solution needs work on different mobile phones and platforms
-* [ ] Your code should be tested (you unit test right?)
+* [x] Your code should be tested (you unit test right?)
 * [x] Please don't use grunt.js or gulp.js
 * [x] We're obsessed with UI and UX so play attention to little details (show-off your CSS skills)
 * [ ] Give particular care to the touch and feel responsiveness
