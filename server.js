@@ -13,6 +13,8 @@ var rupture = require('rupture');
 var jeet = require('jeet');
 
 var express = require('express');
+var logger = require('morgan');
+var gzip = require('compression');
 var Server = express();
 var url = require('url');
 var fs = require('fs');
@@ -20,6 +22,9 @@ var fs = require('fs');
 var App = require('./client');
 var routePatterns = require('./client/routes').routePatterns();
 var port = process.argv[2] || 3000;
+
+Server.use(gzip());
+Server.use(logger("combined"));
 
 Server.use(stylus.middleware({
   src: __dirname + "/public",
