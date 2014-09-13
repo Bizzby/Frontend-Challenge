@@ -13,14 +13,14 @@ var Navigation = React.createClass({
     var ironingActive = this.props.path === "/ironing";
 
     return (
-      <ul className="taskTypeList">
-        <li className={cleaningActive ? "taskTypeList-item active":"taskTypeList-item"}>
+      <ul className="bzSwitch">
+        <li className={cleaningActive ? "bzSwitch-item is-active":"bzSwitch-item"}>
           <a href="/cleaning">
             <icon name="spray_bottle"/>
             Cleaning
           </a>
         </li>
-        <li className={ironingActive ?  "taskTypeList-item active":"taskTypeList-item"}>
+        <li className={ironingActive ?  "bzSwitch-item is-active":"bzSwitch-item"}>
           <a href="/ironing">
             <icon name="iron"/>
             Ironing

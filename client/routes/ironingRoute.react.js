@@ -2,6 +2,9 @@
  * In the flux world, this is a "View Controller".
  * It combines multiple react components, adding business logic. 
  * 
+ * TODO: turn this into a mixin, so I can use it on all routes that serve very
+ * similar purposes.
+ * 
  * @jsx React.DOM
  */
 var React = require('react');
@@ -46,10 +49,13 @@ var ironingRoute = React.createClass({
     alert('BIZZBY!');
   },
   render: function() {
-    // TODO: differentiate between clickable/non-clickable select
+    // TODO: differentiate between clickable/non-clickable version
 
     var job = this.state.job;
 
+    // This is not a particularily pretty way of doing it (having a giant wall
+    // of text is not the most declerative thing in the world), but is the best
+    // way I can think of right now
     return (
       <div className="detailView">
         <p>

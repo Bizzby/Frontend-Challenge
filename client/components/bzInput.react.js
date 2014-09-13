@@ -3,6 +3,8 @@
  */
 var React = require('react');
 
+// TODO: change width depending on input contents
+
 var bzInput = React.createClass({
   propTypes: {
     placeholder: React.PropTypes.string,
@@ -15,7 +17,7 @@ var bzInput = React.createClass({
   },
   render: function() {
     return (
-      <input type="text" placeholder={this.props.placeholder} value={this.state.value} onChange={this.props.onChange}/>
+      <input className="bzInput" type="text" placeholder={this.props.placeholder} value={this.state.value} onChange={this.props.onChange}/>
     );
   }
 });

@@ -30,8 +30,7 @@ global-reset()
 //// Colours
 color-white = #f5f5f5
 color-red = #F2594B
-color-red--light = #EE6B5F
-color-red--xlight = #F57A6F
+color-red--light = #F57A6F
 color-red--dark = #D13F32
 color-red--xdark = #9D2F25
 
@@ -40,9 +39,6 @@ shadow--below = 0 3px 5px rgba(black, 0.1)
 shadow--left = -3px 0 5px rgba(black, 0.1)
 
 //// Font stacks
-// Yeah the fat sans is very different from your font, but "GET PRICE AND
-// BIZZBY IT" sounded like a movie title, so a movie-sans felt apt :D
-font-heading = "sneakers-script-narrow", "sans-serif"
 font-body = "freight-sans-pro", "sans-serif"
 
 //// Easings
@@ -58,6 +54,10 @@ z-index--page-below = 100
 z-index--page-above = 200
 z-index--headerBar =  300
 
+//// Border radii
+border-radius--tight = 3px
+border-radius--loose = 5px
+
 //// Basics
 html
   transition opacity 300ms
@@ -71,7 +71,6 @@ body
   background color-red
   font 16px/1.5 font-body
 h1
-  font-family font-heading
   text-align center
   text-transform uppercase
   font-size 2em
@@ -106,16 +105,60 @@ a
   display block
   background color-red--dark
   box-shadow 0 2px 0 color-red--xdark
-  font-family font-heading
+  font-family font-body
+  font-weight bold
   text-align center
   text-transform uppercase
   border 0
-  border-radius 3px
+  border-radius border-radius--tight
   font-size 1.2rem
-  padding 0.75rem 2rem
+  padding 0.75rem 2.1rem
   color white
   margin 0 auto 1rem
+  cursor pointer
+  text-shadow 0 1px 2px color-red--xdark
+.bzBtn.is-disabled
+  background color-red
+  cursor default
 
+.bzInput
+  background color-red--light
+  font-size 1em
+  color white
+  font-family font-body
+  padding 0.1rem 0.5rem
+  appearance none
+  border none
+  border-radius border-radius--loose 
+  min-width 4rem
+  width 11.5rem
+bzInput-placeholder()
+  color white
+// Have to have separate rules (not selector sharing). Browsers ignore groups of
+// selectors containing any unknown selectors
+.bzInput::-webkit-input-placeholder
+  bzInput-placeholder()
+.bzInput::-moz-placeholder
+  bzInput-placeholder()
+.bzInput:-ms-input-placeholder
+  bzInput-placeholder()
+
+.bzSelector
+  display inline-block
+  cursor pointer
+  background color-red--light
+  border-radius border-radius--loose
+  padding 0 0.25em
+  margin 0 0.25em
+  line-height 1.4
+.bzSelector:hover
+  background color-white
+  color color-red
+  .bzIcon
+    fill @color
+.bzSelector .bzIcon
+  font-size 70%
+  
 .page
   position absolute
   width 100%
@@ -140,50 +183,33 @@ a
 .headerBar-backButton .bzIcon
   position relative
 
-.taskTypeList
+.bzSwitch
   width 100%
   text-align center
   margin-bottom 0.5em
-.taskTypeList-item
+.bzSwitch-item
   display inline-block
   font-size 1.2em
-.taskTypeList-item a
+.bzSwitch-item a
   display inline-block
   text-align center
   padding 0.25em 0.5em
-  border 1px solid color-red--dark
+  border 2px solid color-red--dark
   border-left-width 0px
   transition all 400ms easeOutExpo
-.taskTypeList-item:first-child a
-    border-radius 4px 0 0 4px
-    border-left-width 1px
-.taskTypeList-item:last-child a
-    border-radius 0 4px 4px 0  
-.taskTypeList-item .bzIcon
+.bzSwitch-item:first-child a
+    border-radius border-radius--loose 0 0 border-radius--loose
+    border-left-width 2px
+.bzSwitch-item:last-child a
+    border-radius 0 border-radius--loose border-radius--loose 0  
+.bzSwitch-item .bzIcon
   fill color-red--dark
   display inline-block
   transition fill 400ms easeOutExpo
-.taskTypeList-item.active
-  a
-    background color-red--dark
-  .bzIcon
-    fill white
-
-.bzSelector
-  display inline-block
-  cursor pointer
-  background color-red--xlight
-  border-radius 5px
-  padding 0 0.25em
-  margin 0 0.25em
-  line-height 1.4
-.bzSelector:hover
-  background color-white
-  color color-red
-  .bzIcon
-    fill @color
-.bzSelector .bzIcon
-  font-size 70%
+.bzSwitch-item.is-active a
+  background color-red--dark
+.bzSwitch-item.is-active .bzIcon
+  fill white
 
 .detailView
   font-size 2.2em
@@ -207,14 +233,3 @@ a
     opacity 1
 
 //// Major breakpoints
-+above(38em)
-  body
-    background color-red--light
-  .container
-    max-width 38em
-    margin 5% auto 0
-    border-radius 10px
-    background color-red
-    box-shadow 0 0 10px color-red--dark
-    overflow hidden
-    border 1px solid color-red--dark

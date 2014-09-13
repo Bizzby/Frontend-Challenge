@@ -13,9 +13,10 @@
 		<string>HelveticaNeue</string>
 		<string>AvenirNext-Medium</string>
 		<string>FreightSansProMedium-Regular</string>
+		<string>FreightSansProBold-Regular</string>
 	</array>
 	<key>length</key>
-	<integer>1265982</integer>
+	<integer>1323687</integer>
 	<key>version</key>
 	<integer>37</integer>
 </dict>

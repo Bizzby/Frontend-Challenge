@@ -24,7 +24,6 @@ var port = process.argv[2] || 3000;
 
 Server.use(stylus.middleware({
   src: __dirname + "/public",
-  compress: true,
   sourcemap: true,
   compile: function(str, path) {
     return stylus(str)
