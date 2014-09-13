@@ -69,13 +69,13 @@ html
 body
   color white
   background color-red
-  font 16px/1.5 font-body
+  font 2em/1.5 font-body
 h1
   text-align center
   text-transform uppercase
-  font-size 2em
+  font-size 1em
 h2
-  font-size 1.5em
+  font-size 0.8em
   text-align center
 a
   color white
@@ -154,7 +154,15 @@ bzInput-placeholder()
   border-radius border-radius--loose
   padding 0 0.25em
   line-height 1.4
+  transition-property width, scale
+  transition-duration 100ms, 0ms
+  transition-timing-function easeOutBack
+  overflow hidden
+  &:focus
+    outline 0
 .bzSelector:active
+  transform scale(0.95)
+.bzSelector:hover
   background color-white
   color color-red
   .bzIcon
@@ -181,8 +189,7 @@ bzInput-placeholder()
   position relative
   z-index z-index--headerBar
   background color-red--dark
-  height 3em
-  line-height 3em
+  line-height 1.5em
   margin-bottom 1em
 .headerBar-backButton
   position absolute
@@ -195,6 +202,7 @@ bzInput-placeholder()
   position relative
 
 .bzSwitch
+  font-size 0.5em
   width 100%
   text-align center
   margin-bottom 0.5em
@@ -222,14 +230,6 @@ bzInput-placeholder()
 .bzSwitch-item.is-active .bzIcon
   fill white
 
-.detailView
-  font-size 2.2em
-  for num in 0..10
-    .bzSelector:nth-child({num})
-      animation-name scaleIn
-      animation-duration 200ms
-      animation-timing-function easeInOutBack
-      animation-delay (num * 10 + 100)ms
 .detailView p
   padding 0.5rem 0.75rem
   margin-bottom 0.5rem
@@ -244,3 +244,5 @@ bzInput-placeholder()
     opacity 1
 
 //// Major breakpoints
+
+// TODO: breakpoints to keep the width of the sentance consitent

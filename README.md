@@ -5,8 +5,8 @@
 - [ ] Add bigger-screen breakpoints
 - [ ] Add form validation
 - [x] Add jest unit tests
-- [ ] Sex-up `bzSelector` so size-changes are fluid
-- [ ] Pretty transitions on clicking `bzSelector`s
+- [x] Sex-up `bzSelector` so size-changes are fluid
+- [x] Pretty transitions on clicking `bzSelector`s
 - [x] Create non-interactable `bzSelector`
 - [x] Create and style bzInput
 - [x] Setup flux: store, dispatcher, actionCreators
@@ -30,7 +30,7 @@ $ npm start
 ```
 
 ### Developing locally
-Install nodemon (an awesome little util that restarts the server when js changes occur), then serve, then run watchify to bunde up changes when they occur.
+Install nodemon (an awesome little util that restarts the server when js changes occur), then serve, then run watchify to bundle up changes when they occur.
 
 ```bash
 $ npm install -g nodemon
