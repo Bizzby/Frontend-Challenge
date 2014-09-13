@@ -59,7 +59,7 @@ var ironingRoute = React.createClass({
     return (
       <div className="detailView">
         <p>
-          I need some ironing done at <bzSelector onClick={this.locationClick}><icon name="pin"/>{job.location}</bzSelector> in <bzSelector onClick={this.locationClick}><icon name="clock"/>{job.time}</bzSelector> its mainly <bzSelector onClick={this.ironingTypeClick}>{job.ironingType}</bzSelector> <bzInput placeholder="+ description" onChange={this.descriptionChange}/>
+          I need some ironing done at <bzSelector onClick={this.locationClick}><icon name="pin"/>{job.location}</bzSelector> in <bzSelector disabled="true" onClick={this.locationClick}><icon name="clock"/>{job.time}</bzSelector> its mainly <bzSelector onClick={this.ironingTypeClick}>{job.ironingType}</bzSelector> <bzInput placeholder="+ description" onChange={this.descriptionChange}/>
         </p>
         <div className="callOut">
           <a href="#">What do I get?</a>

@@ -1,8 +1,11 @@
 # The BIZZBY Frontend Challenge
 
 ## TODO
+- [ ] Properly implement `cleaningRoute`
+- [ ] Add validation
 - [ ] Add jest unit tests for all components, stores, actionCreators, and the main app
 - [ ] Sex-up `bzSelector` so size-changes are fluid
+- [ ] Create non-interactable `bzSelector`
 - [x] Create and style bzInput
 - [x] Setup flux: store, dispatcher, actionCreators
 - [x] Detail view `selector`

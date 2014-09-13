@@ -144,12 +144,15 @@ bzInput-placeholder()
   bzInput-placeholder()
 
 .bzSelector
+  font-family font-body
+  border none
+  font-size 1em
+  color white
   display inline-block
   cursor pointer
   background color-red--light
   border-radius border-radius--loose
   padding 0 0.25em
-  margin 0 0.25em
   line-height 1.4
 .bzSelector:hover
   background color-white
@@ -158,6 +161,14 @@ bzInput-placeholder()
     fill @color
 .bzSelector .bzIcon
   font-size 70%
+.bzSelector.is-disabled
+  background color-red
+  border 2px solid color-red--dark
+  cursor default
+.bzSelector.is-disabled:hover
+  color white
+.bzSelector.is-disabled:hover .bzIcon
+  fill white
   
 .page
   position absolute

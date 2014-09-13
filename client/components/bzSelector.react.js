@@ -1,7 +1,8 @@
 /**
  * @jsx React.DOM
  */
-var React = require('react');
+var React = require('react/addons');
+var cx = React.addons.classSet;
 // TODO: This is PERFECT for unit-testing with jest
 
 // TODO: animate width-changing
@@ -14,13 +15,21 @@ var bzSelector = React.createClass({
     onClick: React.PropTypes.func.isRequired
   },
   handleClick: function() {
-    this.props.onClick();
+    if (!this.props.disabled) {
+      this.props.onClick();
+    }
   },
   render: function() {
+
+    var classes = cx({
+      "bzSelector": true,
+      "is-disabled": this.props.disabled
+    });
+
     return (
-      <span className="bzSelector" onClick={this.handleClick}>
+      <button className={classes} disabled={this.props.disabled} onClick={this.handleClick}>
         {this.props.children}
-      </span>
+      </button>
     );
   }
 });
