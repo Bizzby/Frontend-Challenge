@@ -29,8 +29,9 @@ global-reset()
 
 //// Colours
 color-white = #f5f5f5
-color-red = #F2594B
+color-red--xlight = #F4897E
 color-red--light = #F57A6F
+color-red = #F2594B
 color-red--dark = #D13F32
 color-red--xdark = #9D2F25
 
@@ -154,19 +155,18 @@ bzInput-placeholder()
   border-radius border-radius--loose
   padding 0 0.25em
   line-height 1.4
-  transition-property width, scale
-  transition-duration 100ms, 0ms
-  transition-timing-function easeOutBack
+  transition-property width, transform, background
+  transition-duration 100ms, 0ms, 200ms
+  transition-timing-function easeOutBack, easeOutBack, ease
   overflow hidden
+  white-space nowrap
   &:focus
     outline 0
 .bzSelector:active
   transform scale(0.95)
-.bzSelector:hover
-  background color-white
   color color-red
-  .bzIcon
-    fill @color
+.bzSelector:hover
+  background color-red--xlight
 .bzSelector .bzIcon
   font-size 70%
 .bzSelector.is-disabled
@@ -177,6 +177,8 @@ bzInput-placeholder()
   color white
 .bzSelector.is-disabled:hover .bzIcon
   fill white
+.bzSelector.is-disabled:active
+  transform scale(1)
   
 .page
   position absolute

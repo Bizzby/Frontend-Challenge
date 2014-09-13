@@ -2,8 +2,11 @@
 
 ## TODO
 - [ ] Properly implement `cleaningRoute`
-- [ ] Add bigger-screen breakpoints
+- [ ] Add big-screen breakpoints
+- [ ] Add sentance-size-limiting breakpoints
 - [ ] Add form validation
+- [x] Remove 300ms delay on `bzSelector`s
+- [ ] Add sounds
 - [x] Add jest unit tests
 - [x] Sex-up `bzSelector` so size-changes are fluid
 - [x] Pretty transitions on clicking `bzSelector`s
@@ -58,7 +61,7 @@ $ npm run watch
 * [x] Your code should be tested (you unit test right?)
 * [x] Please don't use grunt.js or gulp.js
 * [x] We're obsessed with UI and UX so play attention to little details (show-off your CSS skills)
-* [ ] Give particular care to the touch and feel responsiveness
+* [x] Give particular care to the touch and feel responsiveness
 * [x] Consider using a MVC JS framework such as Angular.js, Ember.js, Backbone or another of your choice (explain wby you've chosen it)
 * [x] You can use CoffeeScript, LESS, SASS, or other community accepted best practices
 * [x] Make use of Facebook react.js framework

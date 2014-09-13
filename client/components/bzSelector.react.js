@@ -26,6 +26,9 @@ var bzSelector = React.createClass({
    * not. It's not as simple as nextProps === this.props AFAIK.
    */
   componentWillReceiveProps: function(nextProps) {
+
+    // TODO: wrap this up into a mixin so I can use it with bzInput
+
     var noop = function() {};
     var dummyClass = "dummyElement-" + new Date().getTime();
     var body = document.body;
@@ -50,7 +53,13 @@ var bzSelector = React.createClass({
       width: width
     });
   },
-  handleClick: function() {
+  _clickTimer: null,
+  handleClick: function(event) {
+    var _this = this;
+
+    // Stop iPhone from calling on the click event (we only want the touch)
+    event.preventDefault();
+
     if (!this.props.disabled) {
       this.props.onClick();
     }
@@ -68,7 +77,7 @@ var bzSelector = React.createClass({
     });
 
     return (
-      <button className={classes} style={styles} disabled={this.props.disabled} onClick={this.handleClick}>
+      <button className={classes} style={styles} disabled={this.props.disabled} onClick={this.handleClick} onTouchStart={this.handleClick}>
         {this.props.children}
       </button>
     );

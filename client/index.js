@@ -2,6 +2,7 @@
  * @jsx React.DOM
  */
 var React = require('react/addons');
+React.initializeTouchEvents(true);
 
 // This is a simple router that supports server-side rendering (none of the
 // other available react routing solutions support this easily yet).
@@ -21,13 +22,16 @@ var App = React.createClass({
     var title = "Bizzby | " + activeRoute.title;
     var handler = activeRoute.handler;
 
+    // Ordinarily hate setting `user-scalable=no`, but it means I can use
+    // `onTouchStart` inside other components without worrying about the user
+    // double-tap zooming (on iPhone at least)
     return (
       <html>
         <head>
           <title>{title}</title>
           <link href="/bizzby.css" rel="stylesheet" />
           <script async src="/bundle.js"></script>
-          <meta name="viewport" content="width=device-width"/>
+          <meta name="viewport" content="width=device-width, user-scalable=no"/>
           <meta charSet="utf-8"/>
         </head>
         <body>
