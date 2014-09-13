@@ -16,6 +16,14 @@ var JobActionCreators = {
     };
     AppDispatcher.handleViewAction(action);
   },
+  changeDescription: function(jobType, text) {
+    var action = {
+      type: ActionTypes.CHANGE_DESCRIPTION,
+      jobType: jobType,
+      text: text
+    };
+    AppDispatcher.handleViewAction(action);
+  },
 };
 
 module.exports = JobActionCreators;

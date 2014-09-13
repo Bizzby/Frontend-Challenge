@@ -1,4 +1,7 @@
 /**
+ * In the flux world, this is a "View Controller".
+ * It combines multiple react components, adding business logic. 
+ * 
  * @jsx React.DOM
  */
 var React = require('react');
@@ -9,7 +12,8 @@ var JobTypes = require('../constants/JobTypes');
 
 var headerBar = require('../components/headerBar.react');
 var icon = require('../components/icon.react');
-var selector = require('../components/bzSelector.react');
+var bzSelector = require('../components/bzSelector.react');
+var bzInput = require('../components/bzInput.react');
 
 var ironingRoute = React.createClass({
   getInitialState: function() {
@@ -17,16 +21,16 @@ var ironingRoute = React.createClass({
       job: IroningJobStore.get()
     };
   },
-  _onChange: function() {
+  _onStateChange: function() {
     this.setState({
       job: IroningJobStore.get()
     });
   },
   componentDidMount: function() {
-    IroningJobStore.addChangeListener(this._onChange);
+    IroningJobStore.addChangeListener(this._onStateChange);
   },
   componentWillUnmount: function() {
-    IroningJobStore.removeChangeListener(this._onChange);
+    IroningJobStore.removeChangeListener(this._onStateChange);
   },
   locationClick: function() {
     JobActionCreators.nextLocation(JobTypes.IRONING);
@@ -34,12 +38,14 @@ var ironingRoute = React.createClass({
   ironingTypeClick: function() {
     JobActionCreators.nextType(JobTypes.IRONING);
   },
+  descriptionChange: function(event) {
+    var text = event.target.value;
+    JobActionCreators.changeDescription(JobTypes.IRONING, text);
+  },
   bizzbyIt: function() {
     alert('BIZZBY!');
   },
   render: function() {
-
-    // TODO: create <input> variant of bzSelector
     // TODO: differentiate between clickable/non-clickable select
 
     var job = this.state.job;
@@ -47,7 +53,7 @@ var ironingRoute = React.createClass({
     return (
       <div className="detailView">
         <p>
-          I need some ironing done at <selector onClick={this.locationClick}><icon name="pin"/>{job.location}</selector> in <selector onClick={this.locationClick}><icon name="clock"/>{job.time}</selector> its mainly <selector onClick={this.ironingTypeClick}>{job.ironingType}</selector> <input placeholder={job.description}/>
+          I need some ironing done at <bzSelector onClick={this.locationClick}><icon name="pin"/>{job.location}</bzSelector> in <bzSelector onClick={this.locationClick}><icon name="clock"/>{job.time}</bzSelector> its mainly <bzSelector onClick={this.ironingTypeClick}>{job.ironingType}</bzSelector> <bzInput placeholder="+ description" onChange={this.descriptionChange}/>
         </p>
         <div className="callOut">
           <a href="#">What do I get?</a>

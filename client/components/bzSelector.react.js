@@ -2,13 +2,12 @@
  * @jsx React.DOM
  */
 var React = require('react');
-
-var JobActionCreators = require('../ActionCreators/JobActionCreators');
-
 // TODO: This is PERFECT for unit-testing with jest
 
 // TODO: animate width-changing
 // http://css-tricks.com/snippets/jquery/animate-heightwidth-to-auto/
+
+// TODO: Add un-clickable variant
 
 var bzSelector = React.createClass({
   propTypes: {

@@ -12,9 +12,10 @@
 	<array>
 		<string>HelveticaNeue</string>
 		<string>AvenirNext-Medium</string>
+		<string>FreightSansProMedium-Regular</string>
 	</array>
 	<key>length</key>
-	<integer>1228509</integer>
+	<integer>1265982</integer>
 	<key>version</key>
 	<integer>37</integer>
 </dict>

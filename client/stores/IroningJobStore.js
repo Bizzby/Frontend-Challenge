@@ -22,7 +22,7 @@ var _job = {
   location: null,
   time: "no location",
   ironingType: _ironingTypes[_ironingTypesIndex],
-  description: "+ description"
+  description: null
 };
 
 function _bumpLocation() {
@@ -45,6 +45,10 @@ function _bumpIroningTypes() {
   _job.ironingType = _ironingTypes[_ironingTypesIndex];
 }
 
+function _setDescription(text) {
+  _job.description = text;
+}
+
 // Public API
 var IroningJobStore = merge(Store, {
   get: function() {
@@ -59,12 +63,19 @@ IroningJobStore.dispatchToken = AppDispatcher.register(function(payload) {
   if (action.jobType !== JobTypes.IRONING) return;
 
   switch (action.type) {
+
     case ActionTypes.CHANGE_LOCATION:
       _bumpLocation();
       IroningJobStore.emitChange();
       break;
+
     case ActionTypes.CHANGE_TYPE:
       _bumpIroningTypes();
+      IroningJobStore.emitChange();
+      break;
+
+    case ActionTypes.CHANGE_DESCRIPTION:
+      _setDescription(action.text);
       IroningJobStore.emitChange();
       break;
   }
