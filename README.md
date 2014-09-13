@@ -2,9 +2,11 @@
 
 ## TODO
 - [ ] Properly implement `cleaningRoute`
-- [ ] Add validation
-- [x] Add jest unit tests for all components, stores, actionCreators, and the main app
+- [ ] Add bigger-screen breakpoints
+- [ ] Add form validation
+- [x] Add jest unit tests
 - [ ] Sex-up `bzSelector` so size-changes are fluid
+- [ ] Pretty transitions on clicking `bzSelector`s
 - [x] Create non-interactable `bzSelector`
 - [x] Create and style bzInput
 - [x] Setup flux: store, dispatcher, actionCreators
@@ -39,12 +41,14 @@ $ npm run watch
 ```
 
 ## What's cool about this project
-- [React](http://facebook.github.io/react/) + [Flux](http://facebook.github.io/flux/)
+- [React](http://facebook.github.io/react/)
+- [Flux](http://facebook.github.io/flux/)
+- [Jest](http://facebook.github.io/jest/)
 - [SVG icons](http://iestynwilliams.net/icons-for-the-web-in-2014)
-- 
+- [@fat's fancy CSS coding guidelines](https://gist.github.com/fat/a47b882eb5f84293c4ed#is-stateOfComponent)
 
 ## If given time, some things I would research and implement to make this project feature-complete (or better) compared to the actual Bizzby app...
-- Use a fluid-layout JS library like packery
+- Use a fluid-layout JS library like packery (I attempted this, but got caught up fighting with bower. I could get it to work with browserify, but not with server rendering. Isomorphic JS tech is still young!)
 - Use a solid JS-based animation library (CSS doesn't cut it for anything remotely complex)
 
 ### Requirements
