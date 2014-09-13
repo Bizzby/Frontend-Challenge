@@ -6,7 +6,7 @@
 - [ ] Add sentance-size-limiting breakpoints: aka figure out how to make line-breaks graceful
 - [ ] Add form validation
 - [x] Remove 300ms delay on `bzSelector`s
-- [x] Add sound (chose the first pop noise I found. Be cooler if there were multpile tones of the same sound á la Clear.app)
+- [x] Add sound (chose the first pop noise I found. Be cooler if there were multiple tones of the same sound á la Clear.app)
 - [x] Add jest unit tests
 - [x] Sex-up `bzSelector` so size-changes are fluid
 - [x] Pretty transitions on clicking `bzSelector`s
@@ -54,18 +54,7 @@ $ npm run watch
 - Use a fluid-layout JS library like packery (I attempted this, but got caught up fighting with bower. I could get it to work with browserify, but not with server rendering. Isomorphic JS tech is still young!)
 - Use a solid JS-based animation library (CSS doesn't cut it for anything remotely complex)
 
-### Requirements
-* [x] [check out the screens here](http://www.bizzby.com/). 
-* [x] We're a mobile-first company so your delivery must be mobile focused
-* [x] Your solution needs work on different mobile phones and platforms
-* [x] Your code should be tested (you unit test right?)
-* [x] Please don't use grunt.js or gulp.js
-* [x] We're obsessed with UI and UX so play attention to little details (show-off your CSS skills)
-* [x] Give particular care to the touch and feel responsiveness
-* [x] Consider using a MVC JS framework such as Angular.js, Ember.js, Backbone or another of your choice (explain wby you've chosen it)
-* [x] You can use CoffeeScript, LESS, SASS, or other community accepted best practices
-* [x] Make use of Facebook react.js framework
-* [ ] Point us to your contribution to open source projects
-* [x] Demonstrate you using your own build script like Makefile
-* [ ] You can just submit a PR here
-* [ ] If you've got a project or code your super pround of feel free to provide this as part of your submission as long as it fits in with the above requirements.
+## Some other open-source stuff I've done that may interest you
+- [Sliderrr](https://github.com/iest/sliderrr): a websocket-powered, collaberative dribbble viewer (runs great on a raspberry pi)
+- [emRuler](https://github.com/iest/emRuler): shows the width or height of the viewport in ems
+- [Chosem](https://github.com/iest/Chosem): an ember-port of the [Chosen](http://harvesthq.github.io/chosen/) library that I built in November 2013
