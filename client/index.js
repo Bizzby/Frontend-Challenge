@@ -14,6 +14,7 @@ var routes = require('./routes').routes;
 var navigation = require('./components/navigation.react');
 var headerBar = require('./components/headerBar.react');
 var icon = require('./components/icon.react');
+var soundie = require('./components/soundie.react');
 
 var App = React.createClass({
   render: function() {
@@ -44,6 +45,8 @@ var App = React.createClass({
             <navigation path={this.props.path}/>
             <handler/>
           </div>
+
+          <soundie/>
 
         </body>
       </html>

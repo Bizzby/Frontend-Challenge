@@ -6,7 +6,7 @@
 - [ ] Add sentance-size-limiting breakpoints
 - [ ] Add form validation
 - [x] Remove 300ms delay on `bzSelector`s
-- [ ] Add sounds
+- [x] Add sound (chose the first pop noise I found. Be cooler if there were multpile tones of the same sound á la Clear.app)
 - [x] Add jest unit tests
 - [x] Sex-up `bzSelector` so size-changes are fluid
 - [x] Pretty transitions on clicking `bzSelector`s
