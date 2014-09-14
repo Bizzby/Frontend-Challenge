@@ -1,4 +1,7 @@
 ## TODO
+- [x] Figure out why components aren't unmounting (was using react wrong)
+- [ ] Got wrap issues again on small screens (safari)
+- [x] Make `bzSelector` use same dummyElement stuff as `bzInput`
 - [x] Make `bzInput` fast
 - [x] Fix wrap issues on small screens
 - [x] Properly implement `cleaningRoute`

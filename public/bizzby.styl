@@ -135,6 +135,7 @@ a
   border none
   border-radius border-radius--loose 
   min-width 4rem
+  transition width 100ms easeOutExpo
 bzInput-placeholder()
   color white
 // Have to have separate rules (not selector sharing). Browsers ignore groups of
@@ -148,6 +149,7 @@ bzInput-placeholder()
 
 .bzSelector
   font-family font-body
+  appearance none
   text-align left
   border none
   font-size 1em
@@ -225,11 +227,18 @@ bzInput-placeholder()
   fill white
 
 .detailView p
-.dummyElement
   display inline-block
   overflow hidden
   padding 0.5rem 0.75rem
   margin-bottom 0.5rem
+
+.dummyElement
+  @extend .detailView p
+  position absolute
+  left -100%
+.dummyElement .bzSelector
+.dummyElement .bzInput
+  transition none
 
 //// Animations
 @keyframes scaleIn
@@ -260,6 +269,3 @@ bzInput-placeholder()
 .hidden
   display none
   visibility hidden
-.off-canvas
-  position absolute
-  left -100%

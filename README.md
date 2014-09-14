@@ -1,6 +1,8 @@
 # The BIZZBY Frontend Challenge
 
-Checkout [TODO.md](https://github.com/iest/Frontend-Challenge/blob/master/TODO.md) to see how I tackled this project (it's in descending order).
+TODO: write up my thoughts about the project
+
+Checkout [TODO.md](https://github.com/iest/Frontend-Challenge/blob/master/TODO.md) to see how I tackled this project (in descending order).
 
 ### View the demo
 TBA - probably bizzby.iest.co

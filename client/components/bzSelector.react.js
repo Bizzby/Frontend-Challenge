@@ -26,33 +26,40 @@ var bzSelector = React.createClass({
    * not. It's not as simple as nextProps === this.props AFAIK.
    */
   componentWillReceiveProps: function(newProps) {
-    this.setStickyWidth(newProps);
-  },
-  setStickyWidth: function(newProps) {
-    var noop = function() {};
-    var dummyClass = "dummyElement";
-    var body = document.body;
-    var dummyComponent = React.renderComponentToStaticMarkup(
-      <bzSelector isWrapped={newProps.isWrapped} onClick={noop}>{newProps.children}</bzSelector>
-    );
-
-    var node = document.createElement('span');
-    node.classList.add(dummyClass);
-    node.innerHTML = dummyComponent;
-    body.appendChild(node);
-
-    var newWidth = node.children[0].offsetWidth;
-
+    var _this = this;
     this.setState({
-      width: newWidth
+      width: _this.getStickyWidth(newProps.children)
     });
-    body.removeChild(node);
+  },
+  getStickyWidth: function(children) {
+    var noop = function() {};
+    var dummyComponent = React.renderComponentToStaticMarkup(
+      <bzSelector isWrapped={this.props.isWrapped} onClick={noop}>{children}</bzSelector>
+    );
+    this._dummyElement.innerHTML = dummyComponent;
+    var newWidth = this._dummyElement.children[0].offsetWidth;
+    return newWidth;
+  },
+  _dummyElement: null,
+  setupDummyElement: function() {
+    var dummyClass = "dummyElement";
+    this._dummyElement = document.createElement('span');
+    this._dummyElement.classList.add(dummyClass);
+    document.body.appendChild(this._dummyElement);
+  },
+  tearDownDummyElement: function() {
+    document.body.removeChild(this._dummyElement);
+    this._dummyElement = null;
   },
   componentDidMount: function() {
     var width = this.getDOMNode().offsetWidth;
     this.setState({
       width: width
     });
+    this.setupDummyElement();
+  },
+  componentWillUnmount: function() {
+    this.tearDownDummyElement();
   },
   handleClick: function(event) {
     var _this = this;

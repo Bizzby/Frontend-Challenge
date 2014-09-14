@@ -28,12 +28,18 @@ var bzInput = React.createClass({
       <bzSelector onClick={noop}>{text}</bzSelector>
     );
     this._dummyElement.innerHTML = dummyComponent;
-    var newWidth = this._dummyElement.offsetWidth;
-    return newWidth;
+    var newWidth = this._dummyElement.children[0].offsetWidth;
+
+    // If the user's typing, add a little extra padding for the animation
+    if (text === this.props.placeholder) {
+      return newWidth;
+    } else {
+      return newWidth + 15;
+    }
   },
   _dummyElement: null,
   setupDummyElement: function() {
-    var dummyClass = "off-canvas";
+    var dummyClass = "dummyElement";
     this._dummyElement = document.createElement('span');
     this._dummyElement.classList.add(dummyClass);
     document.body.appendChild(this._dummyElement);

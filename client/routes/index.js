@@ -1,3 +1,6 @@
+/**
+ * @jsx React.DOM
+ */
 var homeRoute = require('./homeRoute.react');
 var cleaningRoute = require('./cleaningRoute.react');
 var ironingRoute = require('./ironingRoute.react');
@@ -15,15 +18,15 @@ var router = {
   routes: {
     "/": {
       title: "Home",
-      handler: homeRoute
+      handler: <homeRoute/>
     },
     "/cleaning": {
       title: "Cleaning",
-      handler: cleaningRoute
+      handler: <cleaningRoute/>
     },
     "/ironing": {
       title: "Ironing",
-      handler: ironingRoute
+      handler: <ironingRoute/>
     }
   },
   routePatterns: function() {

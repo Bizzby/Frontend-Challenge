@@ -8,6 +8,7 @@ React.initializeTouchEvents(true);
 // other available react routing solutions support this easily yet).
 // I'm only using the `Router.Navigator` part of the lib, as I couldn't figure
 // out how to support animation when using only the `Router.Component`.
+// n.b. I ended up ditching animation between routes
 var Router = require("react-simple-router");
 
 var routes = require('./routes').routes;
@@ -19,7 +20,6 @@ var soundie = require('./components/soundie.react');
 var App = React.createClass({
   render: function() {
     var activeRoute = routes[this.props.path];
-
     var title = "Bizzby | " + activeRoute.title;
     var handler = activeRoute.handler;
 
@@ -43,7 +43,7 @@ var App = React.createClass({
           <div className="container">
             <headerBar/>
             <navigation path={this.props.path}/>
-            <handler/>
+            {handler}
           </div>
 
           <soundie/>

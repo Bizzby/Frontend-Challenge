@@ -10,12 +10,12 @@ var CleaningJobStore = require('../stores/CleaningJobStore');
 
 var soundie = React.createClass({
   componentDidMount: function() {
-    IroningJobStore.addChangeListener(this._onStateChange);
-    CleaningJobStore.addChangeListener(this._onStateChange);
+    // IroningJobStore.addChangeListener(this._onStateChange);
+    // CleaningJobStore.addChangeListener(this._onStateChange);
   },
   componentWillUnmount: function() {
-    IroningJobStore.removeChangeListener(this._onStateChange);
-    CleaningJobStore.removeChangeListener(this._onStateChange);
+    // IroningJobStore.removeChangeListener(this._onStateChange);
+    // CleaningJobStore.removeChangeListener(this._onStateChange);
   },
   _onStateChange: function() {
     var audio = this.getDOMNode();
