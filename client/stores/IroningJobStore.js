@@ -7,6 +7,8 @@
  *
  * TODO: figure out clean way of exposing private API methods for testing
  */
+var moment = require('moment');
+
 var merge = require('react/lib/merge');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var ActionTypes = require('../constants/ActionTypes');
@@ -35,7 +37,8 @@ function _bumpLocation() {
   }
   _job.location = _locations[_locationsIndex];
 
-  _job.time = Math.floor(Math.random()*100) + " minutes";
+  var duration = Math.floor(Math.random()*1000000);
+  _job.time = moment.duration(duration).humanize();
 }
 
 function _bumpIroningTypes() {
