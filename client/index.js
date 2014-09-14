@@ -41,7 +41,6 @@ var App = React.createClass({
           </noscript>
 
           <div className="container">
-            <headerBar/>
             <navigation path={this.props.path}/>
             {handler}
           </div>
