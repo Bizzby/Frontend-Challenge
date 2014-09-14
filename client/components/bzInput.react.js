@@ -27,7 +27,6 @@ var bzInput = React.createClass({
     var dummyComponent = React.renderComponentToStaticMarkup(
       <bzSelector onClick={noop}>{value}</bzSelector>
     );
-    console.log(value);
 
     var node = document.createElement('span');
     node.classList.add(dummyClass);

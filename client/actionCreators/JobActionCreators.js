@@ -16,6 +16,13 @@ var JobActionCreators = {
     };
     AppDispatcher.handleViewAction(action);
   },
+  nextHaveProducts: function(jobType) {
+    var action = {
+      type: ActionTypes.CHANGE_HAVE_PRODUCTS,
+      jobType: jobType
+    };
+    AppDispatcher.handleViewAction(action);
+  },
   changeDescription: function(jobType, text) {
     var action = {
       type: ActionTypes.CHANGE_DESCRIPTION,

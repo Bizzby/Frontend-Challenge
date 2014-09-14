@@ -3,18 +3,69 @@
  */
 var React = require('react');
 
+var CleaningJobStore = require('../stores/CleaningJobStore');
+var JobActionCreators = require('../ActionCreators/JobActionCreators');
+var JobTypes = require('../constants/JobTypes');
+
 var headerBar = require('../components/headerBar.react');
+var icon = require('../components/icon.react');
+var bzSelector = require('../components/bzSelector.react');
+var bzInput = require('../components/bzInput.react');
+
 
 var cleaningRoute = React.createClass({
+  getInitialState: function() {
+    return {
+      job: CleaningJobStore.get()
+    };
+  },
+  _onStateChange: function() {
+    this.setState({
+      job: CleaningJobStore.get()
+    });
+  },
+  componentDidMount: function() {
+    CleaningJobStore.addChangeListener(this._onStateChange);
+  },
+  componentWillUnmount: function() {
+    CleaningJobStore.removeChangeListener(this._onStateChange);
+  },
+  locationClick: function() {
+    JobActionCreators.nextLocation(JobTypes.CLEANING);
+  },
+  haveProductsClick: function() {
+    JobActionCreators.nextHaveProducts(JobTypes.CLEANING);
+  },
+  cleaningTypeClick: function() {
+    JobActionCreators.nextType(JobTypes.CLEANING);
+  },
+  descriptionChange: function(event) {
+    var text = event.target.value;
+    JobActionCreators.changeDescription(JobTypes.CLEANING, text);
+  },
+  bizzbyIt: function() {
+    alert('BIZZBY!');
+  },
+  whatDoTheyGet: function() {
+    alert('Bizzbied');
+  },
   render: function() {
+    // TODO: differentiate between clickable/non-clickable version
+
+    var job = this.state.job;
+
+    // This is not a particularily pretty way of doing it (having a giant wall
+    // of text is not the most declerative thing in the world), but is the best
+    // way I can think of right now
     return (
-      <div className="detailView">
-        <p>Clean my [flat] [+description] at [location] in [timeframe] [I have cleaning products]
+      <div className="detailView detailView--cleaning">
+        <p>
+          Clean my <bzSelector onClick={this.cleaningTypeClick}>{job.cleaningType}</bzSelector> <bzInput placeholder="+ description" onChange={this.descriptionChange} value={job.description}/> at <bzSelector onClick={this.locationClick}><icon name="pin"/>{job.location}</bzSelector> in <bzSelector disabled="true" onClick={this.locationClick}><icon name="clock"/>{job.time}</bzSelector> <bzSelector onClick={this.haveProductsClick}>{job.haveProducts}</bzSelector>
         </p>
         <div className="callOut">
-          What do I get?
+          <button onClick={this.whatDoTheyGet}>{"What's included?"}</button>
         </div>
-        <button>
+        <button className="bzBtn" onClick={this.bizzbyIt}>
           Continue
         </button>
       </div>

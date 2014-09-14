@@ -60,7 +60,7 @@ var ironingRoute = React.createClass({
     // of text is not the most declerative thing in the world), but is the best
     // way I can think of right now
     return (
-      <div className="detailView">
+      <div className="detailView detailView--ironing">
         <p>
           I need some ironing done at <bzSelector onClick={this.locationClick}><icon name="pin"/>{job.location}</bzSelector> in <bzSelector disabled="true" onClick={this.locationClick}><icon name="clock"/>{job.time}</bzSelector> its mainly <bzSelector onClick={this.ironingTypeClick}>{job.ironingType}</bzSelector> <bzInput placeholder="+ description" onChange={this.descriptionChange} value={job.description}/>
         </p>

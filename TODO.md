@@ -1,7 +1,7 @@
 ## TODO
-- [ ] Properly implement `cleaningRoute`
-- [ ] Add big-screen breakpoints
-- [ ] Add sentance-size-limiting breakpoints: aka figure out how to make line-breaks graceful
+- [x] Properly implement `cleaningRoute`
+- [x] Add big-screen breakpoints
+- [x] Add sentance-size-limiting breakpoints: aka figure out how to make line-breaks graceful
 - [ ] Add form validation
 - [x] Remove 300ms delay on `bzSelector`s
 - [x] Add sound (chose the first pop noise I found. Be cooler if there were multiple tones of the same sound á la Clear.app)
