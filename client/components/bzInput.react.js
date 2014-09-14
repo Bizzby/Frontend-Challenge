@@ -1,15 +1,19 @@
 /**
  * @jsx React.DOM
  */
-
-// TODO: make this fast. It's slow as hell on safari
-
 var React = require('react');
+var debounce = require('debounce');
+
 var bzSelector = require('./bzSelector.react');
 
 var bzInput = React.createClass({
   propTypes: {
     placeholder: React.PropTypes.string,
+
+    /**
+     * Debounced call to passed-in callback.
+     * @param {String} The new value of the text input
+     */
     onChange: React.PropTypes.func.isRequired
   },
   getInitialState: function() {
@@ -18,33 +22,48 @@ var bzInput = React.createClass({
       width: null
     };
   },
-  componentWillReceiveProps: function(newProps) {
-    this.setStickyWidth(newProps);
-  },
-  setStickyWidth: function(newProps) {
+  getStickyWidth: function(text) {
     var noop = function() {};
-    var dummyClass = "off-canvas";
-    var body = document.body;
-
-    var value = newProps.value || this.props.placeholder;
     var dummyComponent = React.renderComponentToStaticMarkup(
-      <bzSelector onClick={noop}>{value}</bzSelector>
+      <bzSelector onClick={noop}>{text}</bzSelector>
     );
-
-    var node = document.createElement('span');
-    node.classList.add(dummyClass);
-    node.innerHTML = dummyComponent;
-    body.appendChild(node);
-
-    var newWidth = node.offsetWidth;
-    this.setState({
-      width: newWidth
-    });
-    body.removeChild(node);
+    this._dummyElement.innerHTML = dummyComponent;
+    var newWidth = this._dummyElement.offsetWidth;
+    return newWidth;
+  },
+  _dummyElement: null,
+  setupDummyElement: function() {
+    var dummyClass = "off-canvas";
+    this._dummyElement = document.createElement('span');
+    this._dummyElement.classList.add(dummyClass);
+    document.body.appendChild(this._dummyElement);
+  },
+  tearDownDummyElement: function() {
+    document.body.removeChild(this._dummyElement);
   },
   componentDidMount: function() {
-    this.setStickyWidth(this.props.placeholder);
+    var _this = this;
+    this.setupDummyElement();
+    this.setState({
+      width: _this.getStickyWidth(_this.props.placeholder)
+    });
   },
+  componentWillUnmount: function() {
+    this.tearDownDummyElement();
+  },
+  handleChange: function(event) {
+    var _this = this;
+    var text = event.target.value;
+
+    this.setState({
+      value: text,
+      width: _this.getStickyWidth(text || _this.props.placeholder)
+    }, _this.propogateChange());
+  },
+  propogateChange: debounce(function() {
+    console.log("called");
+    this.props.onChange(this.state.value);
+  }, 500),
   render: function() {
     var styles = null;
 
@@ -53,7 +72,7 @@ var bzInput = React.createClass({
     }
 
     return (
-      <input style={styles} className="bzInput" type="text" placeholder={this.props.placeholder} value={this.props.value} onChange={this.props.onChange}/>
+      <input style={styles} className="bzInput" type="text" placeholder={this.props.placeholder} value={this.state.value} onChange={this.handleChange}/>
     );
   }
 });

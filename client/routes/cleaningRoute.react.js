@@ -2,7 +2,6 @@
  * @jsx React.DOM
  */
 var React = require('react');
-
 var CleaningJobStore = require('../stores/CleaningJobStore');
 var JobActionCreators = require('../ActionCreators/JobActionCreators');
 var JobTypes = require('../constants/JobTypes');
@@ -39,8 +38,7 @@ var cleaningRoute = React.createClass({
   cleaningTypeClick: function() {
     JobActionCreators.nextType(JobTypes.CLEANING);
   },
-  descriptionChange: function(event) {
-    var text = event.target.value;
+  descriptionChange: function(text) {
     JobActionCreators.changeDescription(JobTypes.CLEANING, text);
   },
   bizzbyIt: function() {
@@ -50,8 +48,6 @@ var cleaningRoute = React.createClass({
     alert('Bizzbied');
   },
   render: function() {
-    // TODO: differentiate between clickable/non-clickable version
-
     var job = this.state.job;
 
     // This is not a particularily pretty way of doing it (having a giant wall

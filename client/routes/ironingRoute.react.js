@@ -3,7 +3,7 @@
  * It combines multiple react components, adding business logic. 
  * 
  * TODO: turn this into a mixin, so I can use it on all routes that serve very
- * similar purposes.
+ * similar purposes. Not DRY in the current state
  * 
  * @jsx React.DOM
  */
@@ -41,8 +41,7 @@ var ironingRoute = React.createClass({
   ironingTypeClick: function() {
     JobActionCreators.nextType(JobTypes.IRONING);
   },
-  descriptionChange: function(event) {
-    var text = event.target.value;
+  descriptionChange: function(text) {
     JobActionCreators.changeDescription(JobTypes.IRONING, text);
   },
   bizzbyIt: function() {
