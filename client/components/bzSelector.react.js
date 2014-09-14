@@ -51,19 +51,11 @@ var bzSelector = React.createClass({
     });
     body.removeChild(node);
   },
-  tearDownStickyWidth: function() {
-    this.setState({width: null});
-  },
   componentDidMount: function() {
     var width = this.getDOMNode().offsetWidth;
     this.setState({
       width: width
     });
-
-    window.addEventListener('resize', this.tearDownStickyWidth);
-  },
-  compnentWillUnmount: function() {
-    window.removeEventListener('resize', this.tearDownStickyWidth);
   },
   handleClick: function(event) {
     var _this = this;
