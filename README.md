@@ -23,11 +23,13 @@ I added a little pop sound when making selections (inspired by the product video
 
 There are *some* rendering bugs. I managed to iron out most of them, but the transition between the two routes is a bit hairy. There’s also no transition when any of the words or selectors move around on the screen like on the Bizzby app. I would have loved to spend more time to get all the animations working perfectly in all browsers, but I figured 24 hours of work is enough to prove to you guys what I can do! :D
 
-How far is this app from being fully functional compared to the Bizzby iOS app? Not that far at all. It’s been architected to be a fully-functional app — it’s no prototype. Obviously there are missing screens, but adding them, hooking up to a server API, and writing unit tests is all you’d really need to do to make it work fully. Most of the time was sunk into making selection UI work properly — hooking up the Flux components was a doddle.
+How far is this app from being fully functional compared to the Bizzby iOS app? Not that far at all. It’s been architected to be a fully-functional app — it’s no prototype. Obviously there are missing screens, but adding them, hooking up to a server API, and writing unit tests is all you’d really need to do to make it work fully. Most of the time was sunk into making selection UI work well — hooking up the Flux components was a doddle.
 
 If you want to see how I went about doing stuff, check out [TODO.md](https://github.com/iest/Frontend-Challenge/blob/master/TODO.md) to see my task list (in descending order).
 
-Oh, and there’s no grunt or gulp used here. I used a combination of `nodemon`, `watchify`, and stylus-middleware to achieve what I wanted. IRL I’d use gulp as it makes that kind of stuff much easier, especially setting up `livereload` servers and such. I’m sure it can all be done without gulp/grunt, but why bother when you can save yourself time and just use build tools?
+Oh, and there’s no grunt or gulp used here. I used a combination of `nodemon`, `watchify`, and stylus-middleware to achieve what I needed. IRL I’d use gulp as it makes that kind of stuff much easier, especially setting up `livereload` servers and such. I’m sure it can all be done without gulp/grunt, but why bother when you can save yourself time and just use build tools?
+
+You'll need [node](http://nodejs.org) installed if you want to run it locally.
 
 ### Running locally
 Bundle up the client, then serve on `localhost:8080`:

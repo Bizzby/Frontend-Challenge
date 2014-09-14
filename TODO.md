@@ -1,5 +1,5 @@
 ## TODO
-- [ ] Add Google Analytics
+- [ ] Get live on iest.co
 - [x] Got wrap issues again on small screens (safari)
 - [x] Reduce margin on switch
 - [x] Figure out why components aren't unmounting (was using react wrong)
