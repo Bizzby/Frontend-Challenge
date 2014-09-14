@@ -4,6 +4,8 @@
  *   2. Private API functions
  *   3. Public API
  *   4. AppDispatcher registration callback
+ *
+ * TODO: figure out clean way of exposing private API methods for testing
  */
 var merge = require('react/lib/merge');
 var AppDispatcher = require('../dispatcher/AppDispatcher');
@@ -19,7 +21,7 @@ var _ironingTypes = ["shirts", "bedding", "clothing"];
 var _ironingTypesIndex = 0;
 
 var _job = {
-  location: null,
+  location: "set location",
   time: "no location",
   ironingType: _ironingTypes[_ironingTypesIndex],
   description: null

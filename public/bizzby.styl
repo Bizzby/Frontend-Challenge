@@ -127,7 +127,7 @@ a
   font-size 1em
   color white
   font-family font-body
-  padding 0.1rem 0.5rem
+  padding 0.05rem 0.5rem
   appearance none
   border none
   border-radius border-radius--loose 
@@ -154,7 +154,8 @@ bzInput-placeholder()
   background color-red--light
   border-radius border-radius--loose
   padding 0 0.25em
-  line-height 1.4
+  border 2px solid transparent
+  line-height 1.25
   transition-property width, transform, background
   transition-duration 100ms, 0ms, 200ms
   transition-timing-function easeOutBack, easeOutBack, ease
@@ -171,7 +172,7 @@ bzInput-placeholder()
   font-size 70%
 .bzSelector.is-disabled
   background color-red
-  border 2px solid color-red--dark
+  border-color color-red--dark
   cursor default
 .bzSelector.is-disabled:hover
   color white
@@ -237,8 +238,10 @@ bzInput-placeholder()
     opacity 1
 
 //// Major breakpoints
-
-// TODO: breakpoints to keep the width of the sentance consitent
+@media screen and (min-width: 47rem)
+  .detailView
+    max-width 44rem
+    margin 0 auto
 
 //// Overrides
 .hidden

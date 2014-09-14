@@ -28,6 +28,8 @@ var bzSelector = React.createClass({
   componentWillReceiveProps: function(nextProps) {
 
     // TODO: wrap this up into a mixin so I can use it with bzInput
+    // TODO: infrequent bug sets the width of the items on inital render to be
+    //       way too small
 
     var noop = function() {};
     var dummyClass = "dummyElement-" + new Date().getTime();
