@@ -35,7 +35,7 @@ var bzInput = React.createClass({
 
     var newWidth = node.offsetWidth;
     this.setState({
-      width: newWidth - 15
+      width: newWidth
     });
     body.removeChild(node);
   },

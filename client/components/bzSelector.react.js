@@ -29,15 +29,11 @@ var bzSelector = React.createClass({
     this.setStickyWidth(newProps);
   },
   setStickyWidth: function(newProps) {
-    // TODO: wrap this up into a mixin so I can use it with bzInput
-    // TODO: infrequent bug sets the width of the items on inital render to be
-    //       way too small
-
     var noop = function() {};
-    var dummyClass = "dummyElement-" + new Date().getTime();
+    var dummyClass = "dummyElement";
     var body = document.body;
     var dummyComponent = React.renderComponentToStaticMarkup(
-      <bzSelector onClick={noop}>{newProps.children}</bzSelector>
+      <bzSelector isWrapped={newProps.isWrapped} onClick={noop}>{newProps.children}</bzSelector>
     );
 
     var node = document.createElement('span');
@@ -45,7 +41,8 @@ var bzSelector = React.createClass({
     node.innerHTML = dummyComponent;
     body.appendChild(node);
 
-    var newWidth = node.offsetWidth;
+    var newWidth = node.children[0].offsetWidth;
+
     this.setState({
       width: newWidth
     });
@@ -76,6 +73,7 @@ var bzSelector = React.createClass({
 
     var classes = cx({
       "bzSelector": true,
+      "bzSelector--wrapped": this.props.isWrapped,
       "is-disabled": this.props.disabled
     });
 

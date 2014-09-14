@@ -60,7 +60,7 @@ var cleaningRoute = React.createClass({
     return (
       <div className="detailView detailView--cleaning">
         <p>
-          Clean my <bzSelector onClick={this.cleaningTypeClick}>{job.cleaningType}</bzSelector> <bzInput placeholder="+ description" onChange={this.descriptionChange} value={job.description}/> at <bzSelector onClick={this.locationClick}><icon name="pin"/>{job.location}</bzSelector> in <bzSelector disabled="true" onClick={this.locationClick}><icon name="clock"/>{job.time}</bzSelector> <bzSelector onClick={this.haveProductsClick}>{job.haveProducts}</bzSelector>
+          Clean my <bzSelector onClick={this.cleaningTypeClick}>{job.cleaningType}</bzSelector>&nbsp;<bzInput placeholder="+ description" onChange={this.descriptionChange} value={job.description}/>&nbsp;at&nbsp;<bzSelector onClick={this.locationClick}><icon name="pin"/>{job.location}</bzSelector>&nbsp;in&nbsp;<bzSelector disabled="true" onClick={this.locationClick}><icon name="clock"/>{job.time}</bzSelector>&nbsp;<bzSelector isWrapped="true" onClick={this.haveProductsClick}>{job.haveProducts}</bzSelector>
         </p>
         <div className="callOut">
           <button onClick={this.whatDoTheyGet}>{"What's included?"}</button>

@@ -60,6 +60,8 @@ border-radius--tight = 3px
 border-radius--loose = 5px
 
 //// Basics
+*
+  box-sizing border-box
 html
   // 
 
@@ -84,9 +86,8 @@ a
   width 1.5em
   height @width
   fill white
-  vertical-align -11px
+  vertical-align -8px
   overflow hidden
-  padding 0.15em 0
 
 .callOut
   margin 0 auto
@@ -147,6 +148,7 @@ bzInput-placeholder()
 
 .bzSelector
   font-family font-body
+  text-align left
   border none
   font-size 1em
   color white
@@ -183,13 +185,8 @@ bzInput-placeholder()
   fill white
 .bzSelector.is-disabled:active
   transform scale(1)
-  
-.page
-  position absolute
-  width 100%
-  top 0
-  left 0
-  height 100%
+.bzSelector--wrapped
+  white-space normal
 
 .headerBar
   position relative
@@ -228,6 +225,9 @@ bzInput-placeholder()
   fill white
 
 .detailView p
+.dummyElement
+  display inline-block
+  overflow hidden
   padding 0.5rem 0.75rem
   margin-bottom 0.5rem
 
