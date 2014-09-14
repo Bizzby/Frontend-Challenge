@@ -1,29 +1,5 @@
 # The BIZZBY Frontend Challenge
 
-## TODO
-- [ ] Properly implement `cleaningRoute`
-- [ ] Add big-screen breakpoints
-- [ ] Add sentance-size-limiting breakpoints: aka figure out how to make line-breaks graceful
-- [ ] Add form validation
-- [x] Remove 300ms delay on `bzSelector`s
-- [x] Add sound (chose the first pop noise I found. Be cooler if there were multiple tones of the same sound á la Clear.app)
-- [x] Add jest unit tests
-- [x] Sex-up `bzSelector` so size-changes are fluid
-- [x] Pretty transitions on clicking `bzSelector`s
-- [x] Create non-interactable `bzSelector`
-- [x] Create and style bzInput
-- [x] Setup flux: store, dispatcher, actionCreators
-- [x] Detail view `selector`
-- [x] Detail view layout
-- [x] Animation between views (`CSSTransitionGroup`?)
-- [x] SVG Icons
-- [x] Setup stylus middlware, create stylus file
-- [x] Implement basic layout
-- [x] Setup browserify
-- [x] Setup shared `routes` module, so server knows what routes are available
-- [x] Setup react + flux + server-side rendering
-- [x] npm init, folder structure, setup basic build script
-
 ### View the demo
 TBA - probably bizzby.iest.co
 
@@ -60,7 +36,8 @@ $ npm run watch
 Test-driven-development is great if you have a spec your working towards. This project is still in the R&D phase for me. Typially, the next thing I would do after experimenting with different behaviours would be to spec out how particular modules should work, then write unit tests for that behaviour. Plus I'd rather make pretty stuff than write unit tests all day :)
 
 ## Tested on...
-- Safari on iOS8, Apple iPhone 5
+- Safari on iOS 8, Apple iPhone 5
+- Safari on iOS 7, Apple iPad Mini
 - Safari 8.0, OS X Yosemite
 - Firefox 31, OS X Yosemite
 - Chrome 37,  OS X Yosemite

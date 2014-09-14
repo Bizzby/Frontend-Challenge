@@ -40,7 +40,7 @@ shadow--below = 0 3px 5px rgba(black, 0.1)
 shadow--left = -3px 0 5px rgba(black, 0.1)
 
 //// Font stacks
-font-body = "freight-sans-pro", "sans-serif"
+font-body = "freight-sans-pro", "FreightSans Pro", "Helvetica Neue", "Helvetica",  sans-serif
 
 //// Easings
 // Taken from http://easings.net/
@@ -61,11 +61,11 @@ border-radius--loose = 5px
 
 //// Basics
 html
-  transition opacity 300ms
-  opacity 0
-  &.wf-inactive
-  &.wf-active
-    opacity 1
+  // transition opacity 300ms
+  // opacity 0
+  // &.wf-inactive
+  // &.wf-active
+  //   opacity 1
 
 body
   color white
@@ -238,7 +238,7 @@ bzInput-placeholder()
     opacity 1
 
 //// Major breakpoints
-@media screen and (min-width: 47rem)
++above(47rem)
   .detailView
     max-width 44rem
     margin 0 auto
