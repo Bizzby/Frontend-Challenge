@@ -33,11 +33,10 @@ $ npm start
 ```
 
 ### Developing locally
-Install nodemon (an awesome little util that restarts the server when js changes occur), then serve, then run watchify to bundle up changes when they occur.
+Uses nodemon (an awesome little util that restarts the server when js changes occur) to serve, then run watchify to bundle up changes when they occur.
 
 ```bash
-$ npm install -g nodemon
-$ nodemon server.js 8080
+$ npm run dev
 
 # in another window/tab/session/whatever
 $ npm run watch

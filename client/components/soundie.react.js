@@ -4,6 +4,9 @@
 var React = require('react/addons');
 var IroningJobStore = require('../stores/IroningJobStore');
 
+// TODO: better way of making the sound play. Typing into the description part
+// should not play the sound!
+
 var soundie = React.createClass({
   componentDidMount: function() {
     IroningJobStore.addChangeListener(this._onStateChange);

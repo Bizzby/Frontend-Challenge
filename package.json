@@ -20,6 +20,7 @@
     "jeet": "^5.2.10",
     "jest-cli": "^0.1.18",
     "nib": "^1.0.2",
+    "nodemon": "^1.2.1",
     "react-tools": "^0.11.1",
     "reactify": "^0.14.0",
     "rupture": "^0.1.0",
@@ -40,6 +41,7 @@
   },
   "scripts": {
     "start": "node server.js 8080",
+    "dev": "nodemon server.js 8080",
     "watch": "watchify -o public/bundle.js -v -d ./client",
     "build": "browserify ./client | uglifyjs -cm > public/bundle.js",
     "test": "jest"

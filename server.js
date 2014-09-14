@@ -25,7 +25,6 @@ var port = process.argv[2] || 3000;
 
 Server.use(gzip());
 Server.use(logger("combined"));
-
 Server.use(stylus.middleware({
   src: __dirname + "/public",
   sourcemap: true,
@@ -38,7 +37,6 @@ Server.use(stylus.middleware({
       .use(jeet());
   }
 }));
-
 Server.use(express.static(__dirname + '/public'));
 
 Server.get(routePatterns, function(req, res) {
