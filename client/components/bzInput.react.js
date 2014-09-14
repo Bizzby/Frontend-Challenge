@@ -27,8 +27,8 @@ var bzInput = React.createClass({
     var dummyComponent = React.renderComponentToStaticMarkup(
       <bzSelector onClick={noop}>{text}</bzSelector>
     );
-    this._dummyElement.innerHTML = dummyComponent;
-    var newWidth = this._dummyElement.children[0].offsetWidth;
+    this._dummyContainer.innerHTML = dummyComponent;
+    var newWidth = this._dummyContainer.children[0].offsetWidth;
 
     // If the user's typing, add a little extra padding for the animation
     if (text === this.props.placeholder) {
@@ -37,15 +37,15 @@ var bzInput = React.createClass({
       return newWidth + 15;
     }
   },
-  _dummyElement: null,
+  _dummyContainer: null,
   setupDummyElement: function() {
-    var dummyClass = "dummyElement";
-    this._dummyElement = document.createElement('span');
-    this._dummyElement.classList.add(dummyClass);
-    document.body.appendChild(this._dummyElement);
+    var dummyClass = "dummyContainer";
+    this._dummyContainer = document.createElement('span');
+    this._dummyContainer.classList.add(dummyClass);
+    document.body.appendChild(this._dummyContainer);
   },
   tearDownDummyElement: function() {
-    document.body.removeChild(this._dummyElement);
+    document.body.removeChild(this._dummyContainer);
   },
   componentDidMount: function() {
     var _this = this;

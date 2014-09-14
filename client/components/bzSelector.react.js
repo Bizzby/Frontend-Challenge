@@ -4,6 +4,8 @@
 var React = require('react/addons');
 var cx = React.addons.classSet;
 
+var noop = function() {};
+
 var bzSelector = React.createClass({
   propTypes: {
     onClick: React.PropTypes.func.isRequired
@@ -16,48 +18,74 @@ var bzSelector = React.createClass({
 
   /**
    * We want the CSS width of the element to change according to it's
-   * contents, and that be animated.
+   * contents, and that change be animated.
    *
    * To do so we render a dummy component to static markup, append it to the
    * DOM, measure it's width, then set the width of this component to that
-   * measurement. We keep the element in the DOM until the component is unmounted
+   * measurement. We keep the element in the DOM until the component is
+   * unmounted.
+   * 
+   * By default, this component's text does not wrap. After inserting the dummy,
+   * we check if it's bigger than it's parent — if it is bigger, we apply the
+   * wrap CSS class and try again.
    */
+  _dummyContainer: null,
+  _isWrapped: false,
+  setupDummyElement: function() {
+    var dummyClass = "dummyContainer";
+    this._dummyContainer = document.createElement('span');
+    this._dummyContainer.classList.add(dummyClass);
+    document.body.appendChild(this._dummyContainer);
+  },
+  tearDownDummyElement: function() {
+    document.body.removeChild(this._dummyContainer);
+    this._dummyContainer = null;
+  },
   componentWillReceiveProps: function(newProps) {
     var _this = this;
     var width = _this.getStickyWidth(newProps.children);
     var parentWidth = this.getDOMNode().parentElement.offsetWidth;
 
     this.setState({
-      width: _this.getStickyWidth(newProps.children),
-      isWrapped: width > parentWidth ? true:false
+      width: _this.getStickyWidth(newProps.children)
     });
+  },
+  _renderDummyComponent: function(children) {
+    console.log("wrapped", this._isWrapped);
+    var dummyComponent = React.renderComponentToStaticMarkup(
+      <bzSelector isWrapped={this._isWrapped} onClick={noop}>
+        {children}
+      </bzSelector>
+    );
+    this._dummyContainer.innerHTML = dummyComponent;
   },
   getStickyWidth: function(children) {
-    var noop = function() {};
-    var dummyComponent = React.renderComponentToStaticMarkup(
-      <bzSelector isWrapped={this.props.isWrapped} onClick={noop}>{children}</bzSelector>
-    );
-    this._dummyElement.innerHTML = dummyComponent;
-    var newWidth = this._dummyElement.children[0].offsetWidth;
+    this._renderDummyComponent(children);
+    var newWidth = this._dummyContainer.children[0].offsetWidth;
+    var parentWidth = this._dummyContainer.offsetWidth;
+
+    // Before setting the width, check that the width of this component is not
+    // greater than it's parent.
+    if (newWidth > parentWidth) {
+      console.log('bigger');
+      // If it is greater, then add the wrapped CSS class to the dummy, and
+      // re-measure
+      this._isWrapped = true;
+      this._renderDummyComponent(children);
+      newWidth = this._dummyContainer.children[0].offsetWidth - 5;
+    } else {
+      console.log('smaller');
+      this._isWrapped = false;
+    }
+
     return newWidth;
   },
-  _dummyElement: null,
-  setupDummyElement: function() {
-    var dummyClass = "dummyElement";
-    this._dummyElement = document.createElement('span');
-    this._dummyElement.classList.add(dummyClass);
-    document.body.appendChild(this._dummyElement);
-  },
-  tearDownDummyElement: function() {
-    document.body.removeChild(this._dummyElement);
-    this._dummyElement = null;
-  },
   componentDidMount: function() {
-    var width = this.getDOMNode().offsetWidth;
-    this.setState({
-      width: width
-    });
     this.setupDummyElement();
+
+    this.setState({
+      width: this.getStickyWidth(this.props.children)
+    });
   },
   componentWillUnmount: function() {
     this.tearDownDummyElement();
@@ -79,11 +107,9 @@ var bzSelector = React.createClass({
      styles = {width: this.state.width + "px"};
     }
 
-    // if (this.props.isWrapped)
-
     var classes = cx({
       "bzSelector": true,
-      "bzSelector--wrapped": this.state.isWrapped,
+      "bzSelector--wrapped": this._isWrapped || this.props.isWrapped,
       "is-disabled": this.props.disabled
     });
 

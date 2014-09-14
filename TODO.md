@@ -1,5 +1,6 @@
 ## TODO
-- [ ] Got wrap issues again on small screens (safari)
+- [ ] Add Google Analytics
+- [x] Got wrap issues again on small screens (safari)
 - [x] Reduce margin on switch
 - [x] Figure out why components aren't unmounting (was using react wrong)
 - [x] Make `bzSelector` use same dummyElement stuff as `bzInput`

@@ -6,21 +6,21 @@ var IroningJobStore = require('../stores/IroningJobStore');
 var CleaningJobStore = require('../stores/CleaningJobStore');
 
 // TODO: better way of making the sound play. Typing into the description part
-// should not play the sound!
+//       should not play the sound!
+// TODO: use web audio API instead of plain old <audio> tag. Safari sputters
+//       sometimes when using the <audio> tag
 
 var soundie = React.createClass({
   componentDidMount: function() {
-    // IroningJobStore.addChangeListener(this._onStateChange);
-    // CleaningJobStore.addChangeListener(this._onStateChange);
+    IroningJobStore.addChangeListener(this._onStateChange);
+    CleaningJobStore.addChangeListener(this._onStateChange);
   },
   componentWillUnmount: function() {
-    // IroningJobStore.removeChangeListener(this._onStateChange);
-    // CleaningJobStore.removeChangeListener(this._onStateChange);
+    IroningJobStore.removeChangeListener(this._onStateChange);
+    CleaningJobStore.removeChangeListener(this._onStateChange);
   },
   _onStateChange: function() {
     var audio = this.getDOMNode();
-    audio.pause();
-    audio.currentTime = 0;
     audio.play();
   },
   render: function() {
