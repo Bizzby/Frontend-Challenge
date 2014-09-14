@@ -2,6 +2,15 @@
 
 ## Table of contents
 - [Conclusion](#conclusion)
+- [View the demo](#view-the-demo)
+- [Running locally](#running-locally)
+- [Developing locally](#developing-locally)
+- [Technologies used on this project](#technologies-used-on-this-project]
+- [If given time, some things I would research and implement to make this project feature-complete (or better) compared to the actual Bizzby app…](#if-given-time-some-things-i-would-research-and-implement-to-make-this-project-feature-complete-or-better-compared-to-the-actual-bizzby-app)
+- [Where are all your unit tests?](#where-are-all-your-unit tests)
+- [Tested on...](#tested-on)
+- [Sketch file](#sketch-file)
+- [Some other open-source stuff I've done that may interest you](#some-other-open-source-stuff-I've-done-that-may-interest-you)
 
 ## Conclusion
 All in, it probably took me around 24 hours of work to get the project to where it is now. That includes going on wild tangents down rabbit holes trying to figure out various things (I spent a good 3 hours trying to figure out why Safari would not play nice with a particular page-slide effect — [I gave in eventually and simplified](https://github.com/iest/Frontend-Challenge/commit/54944870f7be8b848f3c645a4079aca11d399061)), as well as diving into various API docs to figure out where I'd made mistakes.
@@ -33,7 +42,7 @@ $ npm run dev
 $ npm run watch
 ```
 
-## What I used in this project
+## Technologies used on this project
 - [React](http://facebook.github.io/react/): super-declerative, super-fast views
 - [Flux](http://facebook.github.io/flux/): uni-directional dataflow for UIs
 - [Jest](http://facebook.github.io/jest/): automocking tests that work great with react
