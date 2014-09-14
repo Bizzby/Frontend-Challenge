@@ -56,6 +56,7 @@ $ npm run watch
 - [Stylus](http://learnboost.github.io/stylus/): [my favourite CSS pre-processor](https://github.com/iest/Frontend-Challenge/blob/master/public/bizzby.styl)
 - [SVG icons](http://iestynwilliams.net/icons-for-the-web-in-2014): vectors with finer control than icon-fonts
 - [@fat's fancy CSS coding guidelines](https://gist.github.com/fat/a47b882eb5f84293c4ed#is-stateOfComponent): my new favourite CSS naming convention
+- [Express](http://expressjs.com): the gold-standard node web framework
 
 ## If given time, some things I would research and implement to make this project feature-complete (or better) compared to the actual Bizzby app...
 - Use a fluid-layout JS library like packery (I attempted this, but got caught up fighting with bower. I could get it to work with browserify, but not with server rendering. Isomorphic JS tech is still young!)
