@@ -1,8 +1,6 @@
 # The BIZZBY Front-end Challenge
 
-## View the demo
-
-http://test.iestynwilliams.net/ironing
+## View the demo: http://test.iestynwilliams.net/ironing
 
 ## Table of contents
 - [Conclusion](#conclusion)
