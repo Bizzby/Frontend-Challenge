@@ -5,7 +5,7 @@
 - [View the demo](#view-the-demo)
 - [Running locally](#running-locally)
 - [Developing locally](#developing-locally)
-- [Technologies used on this project](#technologies-used-on-this-project]
+- [Technologies used on this project](#technologies-used-on-this-project)
 - [If given time, some things I would research and implement to make this project feature-complete (or better) compared to the actual Bizzby app…](#if-given-time-some-things-i-would-research-and-implement-to-make-this-project-feature-complete-or-better-compared-to-the-actual-bizzby-app)
 - [Where are all your unit tests?](#where-are-all-your-unit tests)
 - [Tested on...](#tested-on)
