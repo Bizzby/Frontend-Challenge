@@ -1,7 +1,8 @@
 # The BIZZBY Front-end Challenge
 
 ## View the demo
-TBA - probably bizzby.iest.co
+
+http://test.iestynwilliams.net/ironing
 
 ## Table of contents
 - [Conclusion](#conclusion)
