@@ -134,7 +134,6 @@ a
   border none
   border-radius border-radius--loose 
   min-width 4rem
-  width 11.5rem
 bzInput-placeholder()
   color white
 // Have to have separate rules (not selector sharing). Browsers ignore groups of
@@ -168,6 +167,8 @@ bzInput-placeholder()
 .bzSelector:active
   transform scale(0.95)
   color color-red
+.bzSelector:active .bzIcon
+  fill color-red
 .bzSelector:hover
   background color-red--xlight
 .bzSelector .bzIcon
@@ -254,3 +255,6 @@ bzInput-placeholder()
 .hidden
   display none
   visibility hidden
+.off-canvas
+  position absolute
+  left -100%
