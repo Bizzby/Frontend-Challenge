@@ -15,20 +15,21 @@ var bzSelector = React.createClass({
   },
 
   /**
-   * We want the defined width of the element to change according to it's
-   * contents, and it be animated.
+   * We want the CSS width of the element to change according to it's
+   * contents, and that be animated.
    *
    * To do so we render a dummy component to static markup, append it to the
-   * DOM, measure it's width, set the width of this component to that
-   * measurement, then remove the dummy.
-   *
-   * A better version of this would check if the new props were different or
-   * not. It's not as simple as nextProps === this.props AFAIK.
+   * DOM, measure it's width, then set the width of this component to that
+   * measurement. We keep the element in the DOM until the component is unmounted
    */
   componentWillReceiveProps: function(newProps) {
     var _this = this;
+    var width = _this.getStickyWidth(newProps.children);
+    var parentWidth = this.getDOMNode().parentElement.offsetWidth;
+
     this.setState({
-      width: _this.getStickyWidth(newProps.children)
+      width: _this.getStickyWidth(newProps.children),
+      isWrapped: width > parentWidth ? true:false
     });
   },
   getStickyWidth: function(children) {
@@ -78,9 +79,11 @@ var bzSelector = React.createClass({
      styles = {width: this.state.width + "px"};
     }
 
+    // if (this.props.isWrapped)
+
     var classes = cx({
       "bzSelector": true,
-      "bzSelector--wrapped": this.props.isWrapped,
+      "bzSelector--wrapped": this.state.isWrapped,
       "is-disabled": this.props.disabled
     });
 
