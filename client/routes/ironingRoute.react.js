@@ -10,7 +10,7 @@
 var React = require('react');
 
 var IroningJobStore = require('../stores/IroningJobStore');
-var JobActionCreators = require('../ActionCreators/JobActionCreators');
+var JobActionCreators = require('../actionCreators/JobActionCreators');
 var JobTypes = require('../constants/JobTypes');
 
 var headerBar = require('../components/headerBar.react');

@@ -3,7 +3,7 @@
  */
 var React = require('react');
 var CleaningJobStore = require('../stores/CleaningJobStore');
-var JobActionCreators = require('../ActionCreators/JobActionCreators');
+var JobActionCreators = require('../actionCreators/JobActionCreators');
 var JobTypes = require('../constants/JobTypes');
 
 var headerBar = require('../components/headerBar.react');
