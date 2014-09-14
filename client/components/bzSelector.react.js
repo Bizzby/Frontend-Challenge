@@ -51,7 +51,6 @@ var bzSelector = React.createClass({
     });
   },
   _renderDummyComponent: function(children) {
-    console.log("wrapped", this._isWrapped);
     var dummyComponent = React.renderComponentToStaticMarkup(
       <bzSelector isWrapped={this._isWrapped} onClick={noop}>
         {children}
@@ -67,14 +66,12 @@ var bzSelector = React.createClass({
     // Before setting the width, check that the width of this component is not
     // greater than it's parent.
     if (newWidth > parentWidth) {
-      console.log('bigger');
       // If it is greater, then add the wrapped CSS class to the dummy, and
       // re-measure
       this._isWrapped = true;
       this._renderDummyComponent(children);
       newWidth = this._dummyContainer.children[0].offsetWidth - 5;
     } else {
-      console.log('smaller');
       this._isWrapped = false;
     }
 

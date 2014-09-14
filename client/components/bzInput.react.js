@@ -67,7 +67,6 @@ var bzInput = React.createClass({
     }, _this.propogateChange());
   },
   propogateChange: debounce(function() {
-    console.log("called");
     this.props.onChange(this.state.value);
   }, 500),
   render: function() {

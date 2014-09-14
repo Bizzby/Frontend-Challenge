@@ -13,7 +13,6 @@ var Router = require("react-simple-router");
 
 var routes = require('./routes').routes;
 var navigation = require('./components/navigation.react');
-var headerBar = require('./components/headerBar.react');
 var icon = require('./components/icon.react');
 var soundie = require('./components/soundie.react');
 
@@ -69,7 +68,7 @@ var App = React.createClass({
         a;
       h.className += " wf-loading";
       tk.src = '//use.typekit.net/' + config.kitId + '.js';
-      tk.async = true;
+      tk.async = false;
       tk.onload = tk.onreadystatechange = function() {
         a = this.readyState;
         if (f || a && a != "complete" && a != "loaded") return;

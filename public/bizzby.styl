@@ -48,6 +48,7 @@ easeOutBack = cubic-bezier(0.175, 0.885, 0.32, 1.275)
 easeInOutBack = cubic-bezier(0.68, -0.55, 0.265, 1.55)
 easeOutExpo = cubic-bezier(0.19, 1, 0.22, 1)
 easeOutSine = cubic-bezier(0.39, 0.575, 0.565, 1)
+easeOutCirc = cubic-bezier(0.075, 0.82, 0.165, 1)
 
 //// Z-indexes
 z-index--detailView = 100
@@ -63,11 +64,17 @@ border-radius--loose = 5px
 *
   box-sizing border-box
 html
-  // 
+  background color-red
+html body
+  transition opacity 500ms easeOutCirc
+  opacity 0
+html.wf-active body
+html.wf-inactive body
+  opacity 1
 
 body
   color white
-  background color-red
+  background transparent
   font 2em/1.5 font-body
 h1
   text-align center
