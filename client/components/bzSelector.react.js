@@ -25,8 +25,10 @@ var bzSelector = React.createClass({
    * A better version of this would check if the new props were different or
    * not. It's not as simple as nextProps === this.props AFAIK.
    */
-  componentWillReceiveProps: function(nextProps) {
-
+  componentWillReceiveProps: function(newProps) {
+    this.setStickyWidth(newProps);
+  },
+  setStickyWidth: function(newProps) {
     // TODO: wrap this up into a mixin so I can use it with bzInput
     // TODO: infrequent bug sets the width of the items on inital render to be
     //       way too small
@@ -35,7 +37,7 @@ var bzSelector = React.createClass({
     var dummyClass = "dummyElement-" + new Date().getTime();
     var body = document.body;
     var dummyComponent = React.renderComponentToStaticMarkup(
-      <bzSelector onClick={noop}>{nextProps.children}</bzSelector>
+      <bzSelector onClick={noop}>{newProps.children}</bzSelector>
     );
 
     var node = document.createElement('span');
@@ -49,13 +51,20 @@ var bzSelector = React.createClass({
     });
     body.removeChild(node);
   },
+  tearDownStickyWidth: function() {
+    this.setState({width: null});
+  },
   componentDidMount: function() {
     var width = this.getDOMNode().offsetWidth;
     this.setState({
       width: width
     });
+
+    window.addEventListener('resize', this.tearDownStickyWidth);
   },
-  _clickTimer: null,
+  compnentWillUnmount: function() {
+    window.removeEventListener('resize', this.tearDownStickyWidth);
+  },
   handleClick: function(event) {
     var _this = this;
 

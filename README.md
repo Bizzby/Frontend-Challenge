@@ -43,6 +43,9 @@ Test-driven-development is great if you have a spec your working towards. This p
 - Chrome 37,  OS X Yosemite
 - IE11, Windows 8.1
 
+## Sketch file
+If you have Sketch 3 or above, check out `bizzby icons.sketch` to see how I put together the icons, and to see a tiny styleguide I did for the project.
+
 ## Some other open-source stuff I've done that may interest you
 - [Sliderrr](https://github.com/iest/sliderrr): a websocket-powered, collaberative dribbble viewer (runs great on a raspberry pi)
 - [emRuler](https://github.com/iest/emRuler): shows the width or height of the viewport in ems

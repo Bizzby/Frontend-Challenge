@@ -48,6 +48,9 @@ var ironingRoute = React.createClass({
   bizzbyIt: function() {
     alert('BIZZBY!');
   },
+  whatDoTheyGet: function() {
+    alert('Bizzbied');
+  },
   render: function() {
     // TODO: differentiate between clickable/non-clickable version
 
@@ -62,7 +65,7 @@ var ironingRoute = React.createClass({
           I need some ironing done at <bzSelector onClick={this.locationClick}><icon name="pin"/>{job.location}</bzSelector> in <bzSelector disabled="true" onClick={this.locationClick}><icon name="clock"/>{job.time}</bzSelector> its mainly <bzSelector onClick={this.ironingTypeClick}>{job.ironingType}</bzSelector> <bzInput placeholder="+ description" onChange={this.descriptionChange}/>
         </p>
         <div className="callOut">
-          <a href="#">What do I get?</a>
+          <button onClick={this.whatDoTheyGet} >What do I get?</button>
         </div>
         <button className="bzBtn" onClick={this.bizzbyIt}>
           Get price &amp; Bizzby it
