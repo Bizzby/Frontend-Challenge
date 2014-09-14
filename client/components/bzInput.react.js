@@ -1,6 +1,9 @@
 /**
  * @jsx React.DOM
  */
+
+// TODO: make this fast. It's slow as hell on safari
+
 var React = require('react');
 var bzSelector = require('./bzSelector.react');
 

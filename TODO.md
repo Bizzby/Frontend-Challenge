@@ -1,4 +1,5 @@
 ## TODO
+- [ ] Make `bzInput` fast
 - [x] Fix wrap issues on small screens
 - [x] Properly implement `cleaningRoute`
 - [x] Add big-screen breakpoints
